@@ -9,6 +9,10 @@ export const metadata: Metadata = {
   
   authors: [{ name: 'Anish', url: 'https://devan1shx.github.io/' }],
 
+  verification: {
+    google: '7P-w5WodAuEbgK6y-QWqkElBaSPWPFAdOHkT81YA6_M',
+  },
+
   openGraph: {
     type: 'website',
     url: 'https://devan1shx.github.io/',
@@ -54,5 +58,6 @@ html {
     </html>
   )
 }
+
 
 
