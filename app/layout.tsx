@@ -1,7 +1,6 @@
 import type { Metadata } from 'next'
 import { GeistSans } from 'geist/font/sans'
 import { GeistMono } from 'geist/font/mono'
-import { Analytics } from '@vercel/analytics/next'
 import './globals.css'
 
 export const metadata: Metadata = {
@@ -17,7 +16,7 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning={true}>
       <head>
-        <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+        <link rel="icon" href="/Anish-Portfolio/favicon.ico" type="image/x-icon" />
 
         <style>{`
 html {
@@ -29,8 +28,8 @@ html {
       </head>
       <body suppressHydrationWarning={true}> 
         {children}
-        <Analytics />
       </body>
     </html>
   )
+
 }
