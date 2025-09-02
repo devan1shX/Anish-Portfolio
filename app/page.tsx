@@ -8,6 +8,12 @@ import {
   Github,
   Linkedin,
   X,
+  Terminal,
+  SlidersHorizontal,
+  FileText, 
+  FolderKanban, 
+  AtSign, 
+  Award
 } from "lucide-react";
 import ReactFlow, {
   useNodesState,
@@ -15,7 +21,7 @@ import ReactFlow, {
   addEdge,
   Background,
   Controls,
-  Connection,  
+  Connection,
 } from "reactflow";
 import "reactflow/dist/style.css";
 
@@ -191,7 +197,12 @@ export default function Portfolio() {
       { id: "e11", source: "concat", target: "dense_450d", animated: true },
       { id: "e12", source: "dense_450d", target: "reason_mha", animated: true },
       { id: "e13", source: "text_dense", target: "reason_mha", animated: true },
-      { id: "e14", source: "graph_dense", target: "reason_mha", animated: true },
+      {
+        id: "e14",
+        source: "graph_dense",
+        target: "reason_mha",
+        animated: true,
+      },
       { id: "e15", source: "reason_mha", target: "dropout", animated: true },
       { id: "e16", source: "dropout", target: "output", animated: true },
       { id: "e17", source: "node_feats", target: "mask_nodes", animated: true },
@@ -201,13 +212,18 @@ export default function Portfolio() {
       { id: "e21", source: "gcn1", target: "gcn2", animated: true },
       { id: "e22", source: "gcn2", target: "gcn3", animated: true },
       { id: "e23", source: "gcn3", target: "masked_pool", animated: true },
-      { id: "e24", source: "masked_pool", target: "graph_dense", animated: true },
+      {
+        id: "e24",
+        source: "masked_pool",
+        target: "graph_dense",
+        animated: true,
+      },
     ];
 
     const [nodes, , onNodesChange] = useNodesState(initialNodes);
     const [edges, setEdges, onEdgesChange] = useEdgesState(initialEdges);
     const onConnect = useCallback(
-      (params: Connection) => setEdges((eds) => addEdge(params, eds)), 
+      (params: Connection) => setEdges((eds) => addEdge(params, eds)),
       [setEdges]
     );
 
@@ -269,7 +285,8 @@ export default function Portfolio() {
 
       <section id="about" className="border-b-4 border-green-400 p-4 md:p-6">
         <div className="max-w-6xl mx-auto">
-          <h2 className="text-2xl md:text-3xl font-bold mb-6 border-b-2 border-white pb-2">
+          <h2 className="text-2xl md:text-3xl font-bold mb-6 border-b-2 border-white pb-2 flex items-center gap-3">
+            <FileText className="text-green-400" size={28} />
             ABOUT_ME.TXT
           </h2>
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-8">
@@ -324,21 +341,100 @@ export default function Portfolio() {
     "Jetpack Compose", "Android", "JavaFX"
   ]
 }`}
-              </pre>
+</pre>
             </div>
           </div>
         </div>
       </section>
 
+      <section id="coding" className="border-b-4 border-green-400 p-4 md:p-6">
+        <div className="max-w-6xl mx-auto">
+          <h2 className="text-2xl md:text-3xl font-bold mb-6 border-b-2 border-white pb-2 flex items-center gap-3">
+            <Terminal className="text-green-400" size={28} />
+            PROBLEM_SOLVING.LOG
+          </h2>
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-8">
+            <div className="border-2 border-white p-4 md:p-6 space-y-6">
+              <div>
+                <h3 className="text-lg md:text-xl font-bold text-green-400">
+                  LEETCODE_PROFILE:
+                </h3>
+                <p className="text-sm md:text-base mt-2 mb-3">
+                  Actively solving problems to sharpen algorithmic skills.
+                  <br />
+                  <span className="text-white font-bold">150+</span> Problems
+                  Solved.
+                </p>
+                <a
+                  href="https://leetcode.com/u/devan1shX/" 
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="border-2 border-white px-3 py-2 hover:bg-white hover:text-black flex items-center gap-2 justify-center sm:inline-flex"
+                >
+                  <ExternalLink size={16} />
+                  <span>VIEW_PROFILE</span>
+                </a>
+              </div>
+              <div>
+                <h3 className="text-lg md:text-xl font-bold text-green-400">
+                  GEEKSFORGEEKS_PROFILE:
+                </h3>
+                <p className="text-sm md:text-base mt-2 mb-3">
+                  Practicing diverse data structures and core concepts.
+                  <br />
+                  <span className="text-white font-bold">100+</span> Problems
+                  Solved.
+                </p>
+                <a
+                  href="https://www.geeksforgeeks.org/user/devan1shx/" 
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="border-2 border-white px-3 py-2 hover:bg-white hover:text-black flex items-center gap-2 justify-center sm:inline-flex"
+                >
+                  <ExternalLink size={16} />
+                  <span>VIEW_PROFILE</span>
+                </a>
+              </div>
+            </div>
+
+            <div className="border-2 border-white p-4 md:p-6">
+              <h3 className="text-lg md:text-xl font-bold mb-4 text-green-400">
+                STRENGTHS.CFG:
+              </h3>
+              <pre className="text-xs md:text-sm leading-relaxed overflow-x-auto">
+{`# Key areas of expertise in algorithms and data structures
+
+[preferred_topics]
+- Dynamic Programming
+- Graph Theory (DFS, BFS, Dijkstra)
+- Trees & Advanced Data Structures
+- Two Pointers & Sliding Window
+- Bit Manipulation
+
+[approach]
+1. ANALYZE_CONSTRAINTS
+2. VISUALIZE_PROBLEM
+3. IMPLEMENT_BRUTEFORCE (if needed)
+4. OPTIMIZE_SOLUTION
+5. TEST_EDGE_CASES`}
+                </pre>
+                    </div>
+                  </div>
+                </div>
+              </section>
+
       <section id="projects" className="border-b-4 border-green-400 p-4 md:p-6">
         <div className="max-w-6xl mx-auto">
-          <h2 className="text-2xl md:text-3xl font-bold mb-6 border-b-2 border-white pb-2">
+          <h2 className="text-2xl md:text-3xl font-bold mb-6 border-b-2 border-white pb-2 flex items-center gap-3">
+            <FolderKanban className="text-green-400" size={28} />
             PROJECTS.DIR
           </h2>
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
             <div className="border-2 border-white">
               <div className="border-b-2 border-white p-3 md:p-4 bg-green-400 text-black">
-                <h3 className="text-lg md:text-xl font-bold">DOCUMENT_SCANNER_APP</h3>
+                <h3 className="text-lg md:text-xl font-bold">
+                  DOCUMENT_SCANNER_APP
+                </h3>
               </div>
               <div className="p-4 md:p-6">
                 <img
@@ -371,20 +467,22 @@ export default function Portfolio() {
                     CODE
                   </a>
                   <a
-                  href="/base.apk"
-                  download="base.apk"
-                  className="border-2 border-white px-3 py-1 hover:bg-white hover:text-black flex items-center gap-2 justify-center text-sm md:text-base"
-                >
-                  <ExternalLink size={16} />
-                  INSTALL
-                </a>
+                    href="/base.apk"
+                    download="base.apk"
+                    className="border-2 border-white px-3 py-1 hover:bg-white hover:text-black flex items-center gap-2 justify-center text-sm md:text-base"
+                  >
+                    <ExternalLink size={16} />
+                    INSTALL
+                  </a>
                 </div>
               </div>
             </div>
 
             <div className="border-2 border-white">
               <div className="border-b-2 border-white p-3 md:p-4 bg-green-400 text-black">
-                <h3 className="text-lg md:text-xl font-bold">DECEPTION_DETECTION_AI</h3>
+                <h3 className="text-lg md:text-xl font-bold">
+                  DECEPTION_DETECTION_AI
+                </h3>
               </div>
               <div className="p-4 md:p-6">
                 <div
@@ -425,7 +523,9 @@ export default function Portfolio() {
 
             <div className="border-2 border-white">
               <div className="border-b-2 border-white p-3 md:p-4 bg-green-400 text-black">
-                <h3 className="text-lg md:text-xl font-bold">STICK_HERO_GAME</h3>
+                <h3 className="text-lg md:text-xl font-bold">
+                  STICK_HERO_GAME
+                </h3>
               </div>
               <div className="p-4 md:p-6">
                 <img
@@ -459,7 +559,9 @@ export default function Portfolio() {
 
             <div className="border-2 border-white">
               <div className="border-b-2 border-white p-3 md:p-4 bg-green-400 text-black">
-                <h3 className="text-lg md:text-xl font-bold">MINI_OPERATING_SYSTEM</h3>
+                <h3 className="text-lg md:text-xl font-bold">
+                  MINI_OPERATING_SYSTEM
+                </h3>
               </div>
               <div className="p-4 md:p-6">
                 <img
@@ -491,7 +593,9 @@ export default function Portfolio() {
 
             <div className="border-2 border-white">
               <div className="border-b-2 border-white p-3 md:p-4 bg-green-400 text-black">
-                <h3 className="text-lg md:text-xl font-bold">ADVANCED_NOC_DESIGN</h3>
+                <h3 className="text-lg md:text-xl font-bold">
+                  ADVANCED_NOC_DESIGN
+                </h3>
               </div>
               <div className="p-4 md:p-6">
                 <img
@@ -526,10 +630,90 @@ export default function Portfolio() {
         </div>
       </section>
 
+      <section id="setup" className="border-b-4 border-green-400 p-4 md:p-6">
+        <div className="max-w-6xl mx-auto">
+          <h2 className="text-2xl md:text-3xl font-bold mb-6 border-b-2 border-white pb-2 flex items-center gap-3">
+            <SlidersHorizontal className="text-green-400" size={28} />
+            SETUP.CONF
+          </h2>
+          <div className="border-2 border-white p-4 md:p-6">
+            <pre className="text-xs md:text-sm leading-relaxed overflow-x-auto">
+              {`# My daily driver configuration for development and productivity.
+
+[hardware]
+computer = "HP Pavilion Gaming 15 (ec-2150ax)"
+monitor = "Dell U2721DE (27-inch QHD)"
+keyboard = "Keychron K2 (Mechanical)"
+mouse = "Logitech MX Master 3S"
+headphones = "Sony WH-1000XM4"
+
+[dev_environment]
+editor = "Visual Studio Code"
+theme = "SynthWave '84"
+terminal = "Windows Terminal w/ WSL2 (Ubuntu)"
+shell_prompt = "Starship 🚀"
+version_control = "Git & GitHub Desktop"
+api_client = "Postman"
+
+[productivity_tools]
+browser = "Brave + Chrome for Dev"
+note_taking = "Notion & Obsidian"
+design = "Figma"
+music = "Spotify (Lo-fi beats for focus)"
+`}
+            </pre>
+          </div>
+        </div>
+      </section>
+
+      <section id="leadership" className="border-b-4 border-green-400 p-4 md:p-6">
+        <div className="max-w-6xl mx-auto">
+          <h2 className="text-2xl md:text-3xl font-bold mb-6 border-b-2 border-white pb-2 flex items-center gap-3">
+            <Award className="text-green-400" size={28} />
+            LEADERSHIP.MD
+          </h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">
+            <div className="border-2 border-white p-4 md:p-6">
+              <h3 className="font-bold text-base md:text-lg">
+                LEAD TEACHING ASSISTANT
+              </h3>
+              <p className="text-green-400 text-sm md:text-base mb-2">
+                EpicQuest Learning | May 2024 - May 2025
+              </p>
+              <ul className="list-disc list-inside space-y-1 text-sm md:text-base">
+                <li>
+                  Designed and delivered app development curriculum for 10+ students.
+                </li>
+                <li>
+                  Mentored students on leadership projects using design thinking strategies.
+                </li>
+              </ul>
+            </div>
+            <div className="border-2 border-white p-4 md:p-6">
+              <h3 className="font-bold text-base md:text-lg">
+                CLASS REPRESENTATIVE
+              </h3>
+              <p className="text-green-400 text-sm md:text-base mb-2">
+                Tinu Public School | Class 12
+              </p>
+              <ul className="list-disc list-inside space-y-1 text-sm md:text-base">
+                <li>
+                  Acted as the primary liaison for over 80 students and faculty.
+                </li>
+                <li>
+                  Organized class-wide academic initiatives and communicated feedback.
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
       <section id="resume" className="border-b-4 border-green-400 p-4 md:p-6">
         <div className="max-w-6xl mx-auto">
-          <h2 className="text-2xl md:text-3xl font-bold mb-6 border-b-2 border-white pb-2">
-            RESUME.PDF
+          <h2 className="text-2xl md:text-3xl font-bold mb-6 border-b-2 border-white pb-2 flex items-center gap-3">
+            <FolderKanban className="text-green-400" size={28} />
+            PROJECTS.DIR
           </h2>
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 lg:gap-8">
             <div className="lg:col-span-2 border-2 border-white p-4 md:p-6">
@@ -538,56 +722,70 @@ export default function Portfolio() {
               </h3>
 
               <div className="mb-6">
-                <h4 className="font-bold text-sm md:text-base">PLATFORM DEVELOPER</h4>
+                <h4 className="font-bold text-sm md:text-base">
+                  PLATFORM DEVELOPER
+                </h4>
                 <a
                   href="https://otmt.iiitd.edu.in"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-green-400 hover:underline cursor-pointer text-sm md:text-base break-all"
                 >
-                  Office of Tech Transfer & Management, IIIT-Delhi | Jan 2025 - Apr 2025
+                  Office of Tech Transfer & Management, IIIT-Delhi | Jan 2025 -
+                  Apr 2025
                 </a>
                 <ul className="mt-2 space-y-1 text-sm md:text-base">
                   <li>
-                    • Led full-stack development of OTMT platform: MERN web app + Android app + admin dashboard
+                    • Led full-stack development of OTMT platform: MERN web app
+                    + Android app + admin dashboard
                   </li>
                   <li>
-                    • Built automated brochure generation tool and integrated RAG-based chatbot for user queries
+                    • Built automated brochure generation tool and integrated
+                    RAG-based chatbot for user queries
                   </li>
                 </ul>
               </div>
 
               <div className="mb-6">
-                <h4 className="font-bold text-sm md:text-base">FULL-STACK & SECURITY ENGINEER</h4>
+                <h4 className="font-bold text-sm md:text-base">
+                  FULL-STACK & SECURITY ENGINEER
+                </h4>
                 <a
                   href="https://r2c.iiitd.edu.in"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-green-400 hover:underline cursor-pointer text-sm md:text-base break-all"
                 >
-                  Research to Commercialization, IIIT-Delhi | May 2025 - July 2025
+                  Research to Commercialization, IIIT-Delhi | May 2025 - July
+                  2025
                 </a>
                 <ul className="mt-2 space-y-1 text-sm md:text-base">
                   <li>
-                    • Built secure research portal with React.js, Node.js, MongoDB and integrated ML metadata extraction
+                    • Built secure research portal with React.js, Node.js,
+                    MongoDB and integrated ML metadata extraction
                   </li>
                   <li>
-                    • Implemented Firebase Auth, rate limiting, encrypted storage with zero reported data breaches
+                    • Implemented Firebase Auth, rate limiting, encrypted
+                    storage with zero reported data breaches
                   </li>
                 </ul>
               </div>
 
               <div className="mb-6">
-                <h4 className="font-bold text-sm md:text-base">LEAD TEACHING ASSISTANT</h4>
+                <h4 className="font-bold text-sm md:text-base">
+                  LEAD TEACHING ASSISTANT
+                </h4>
                 <p className="text-green-400 text-sm md:text-base">
                   EpicQuest Learning | May 2024 - May 2025
                 </p>
                 <ul className="mt-2 space-y-1 text-sm md:text-base">
                   <li>
-                    • Designed app development curriculum for 10+ students, achieving 20% increase in engagement
+                    • Designed app development curriculum for 10+ students,
+                    achieving 20% increase in engagement
                   </li>
                   <li>
-                    • Conducted SDG research and implemented design thinking strategies for student leadership projects
+                    • Conducted SDG research and implemented design thinking
+                    strategies for student leadership projects
                   </li>
                 </ul>
               </div>
@@ -602,19 +800,24 @@ export default function Portfolio() {
                   B.TECH COMPUTER SCIENCE ENGINEERING
                 </h4>
                 <p className="text-green-400 text-xs md:text-sm break-words">
-                  Indraprastha Institute of Information Technology, Delhi | Aug 2022 – Jun 2026
+                  Indraprastha Institute of Information Technology, Delhi | Aug
+                  2022 – Jun 2026
                 </p>
                 <p className="text-xs md:text-sm">CGPA: 7.11/10</p>
               </div>
               <div className="mb-4">
-                <h4 className="font-bold text-sm md:text-base">CBSE CLASS 12 (PCM + CS)</h4>
+                <h4 className="font-bold text-sm md:text-base">
+                  CBSE CLASS 12 (PCM + CS)
+                </h4>
                 <p className="text-green-400 text-xs md:text-sm">
                   Tinu Public School | Apr 2021 – Feb 2022
                 </p>
                 <p className="text-xs md:text-sm">Percentage: 93.2%</p>
               </div>
               <div className="mb-4">
-                <h4 className="font-bold text-sm md:text-base">CBSE CLASS 10</h4>
+                <h4 className="font-bold text-sm md:text-base">
+                  CBSE CLASS 10
+                </h4>
                 <p className="text-green-400 text-xs md:text-sm">
                   Tinu Public School | Apr 2019 – Mar 2020
                 </p>
@@ -647,7 +850,8 @@ export default function Portfolio() {
 
       <section id="contact" className="p-4 md:p-6">
         <div className="max-w-6xl mx-auto">
-          <h2 className="text-2xl md:text-3xl font-bold mb-6 border-b-2 border-white pb-2">
+          <h2 className="text-2xl md:text-3xl font-bold mb-6 border-b-2 border-white pb-2 flex items-center gap-3">
+            <AtSign className="text-green-400" size={28} />
             CONTACT.SH
           </h2>
           <div className="border-2 border-white p-6 md:p-8">
@@ -678,7 +882,9 @@ export default function Portfolio() {
 
               <div className="text-center">
                 <Linkedin size={48} className="mx-auto mb-4 text-green-400" />
-                <h3 className="font-bold mb-2 text-sm md:text-base">LINKEDIN</h3>
+                <h3 className="font-bold mb-2 text-sm md:text-base">
+                  LINKEDIN
+                </h3>
                 <a
                   href="https://www.linkedin.com/in/devan1shX/"
                   className="border-2 border-white px-3 md:px-4 py-2 hover:bg-white hover:text-black inline-block text-xs md:text-sm break-all"
@@ -701,7 +907,7 @@ export default function Portfolio() {
 
       <footer className="border-t-4 border-green-400 p-4 md:p-6 text-center">
         <p className="text-green-400 text-xs md:text-sm">
-          © 2024 Anish | Crafted with Next.js & Tailwind | Deployed on Github
+          © 2025 Anish | Crafted with Next.js & Tailwind | Deployed on Github
         </p>
       </footer>
 
@@ -742,33 +948,41 @@ export default function Portfolio() {
             </div>
             <div className="p-4 md:p-6 flex-grow overflow-y-auto">
               <div className="text-center mb-2 text-green-400 font-bold tracking-widest text-sm md:text-base">
-                {`IMAGE ${currentScannerImage.replace(/[^0-9]/g, "")} OF ${scannerImageCount}`}
+                {`IMAGE ${currentScannerImage.replace(
+                  /[^0-9]/g,
+                  ""
+                )} OF ${scannerImageCount}`}
               </div>
               <div className="mb-4 border-2 border-white">
                 <img
                   src={currentScannerImage}
-                  alt={`Document Scanner Screenshot ${currentScannerImage.replace(/[^0-9]/g, "")}`}
+                  alt={`Document Scanner Screenshot ${currentScannerImage.replace(
+                    /[^0-9]/g,
+                    ""
+                  )}`}
                   className="w-full h-auto object-contain max-h-[50vh] md:max-h-[60vh] bg-gray-800"
                 />
               </div>
               <div className="grid grid-cols-3 sm:grid-cols-5 md:grid-cols-9 gap-1 md:gap-2">
-                {Array.from({ length: scannerImageCount }, (_, i) => i + 1).map((num) => (
-                  <div
-                    key={num}
-                    onClick={() => setCurrentScannerImage(`/${num}.jpg`)}
-                    className={`border-2 cursor-pointer transition-all ${
-                      currentScannerImage === `/${num}.jpg`
-                        ? "border-green-400 scale-105"
-                        : "border-white hover:border-green-400"
-                    }`}
-                  >
-                    <img
-                      src={`/${num}.jpg`}
-                      alt={`Thumbnail ${num}`}
-                      className="w-full h-auto object-cover aspect-square bg-gray-700"
-                    />
-                  </div>
-                ))}
+                {Array.from({ length: scannerImageCount }, (_, i) => i + 1).map(
+                  (num) => (
+                    <div
+                      key={num}
+                      onClick={() => setCurrentScannerImage(`/${num}.jpg`)}
+                      className={`border-2 cursor-pointer transition-all ${
+                        currentScannerImage === `/${num}.jpg`
+                          ? "border-green-400 scale-105"
+                          : "border-white hover:border-green-400"
+                      }`}
+                    >
+                      <img
+                        src={`/${num}.jpg`}
+                        alt={`Thumbnail ${num}`}
+                        className="w-full h-auto object-cover aspect-square bg-gray-700"
+                      />
+                    </div>
+                  )
+                )}
               </div>
             </div>
           </div>
@@ -777,4 +991,3 @@ export default function Portfolio() {
     </div>
   );
 }
-
