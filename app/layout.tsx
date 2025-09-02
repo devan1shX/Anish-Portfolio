@@ -4,13 +4,16 @@ import { GeistMono } from 'geist/font/mono'
 import './globals.css'
 
 export const metadata: Metadata = {
-  title: 'devan1shX',
-  description: 'The portfolio of Anish, a software engineer specializing in full-stack development, AI, and building production-grade systems.',
+  title: 'Anish | Software Engineer',
+  description: 'Explore the portfolio of Anish, a final-year Computer Science student at IIIT-Delhi. Showcasing full-stack projects using the MERN stack, AI/ML models for deception detection, and systems-level programming.',
+  
+  authors: [{ name: 'Anish', url: 'https://devan1shx.github.io/' }],
+
   openGraph: {
     type: 'website',
     url: 'https://devan1shx.github.io/',
     title: 'Anish | Software Engineer',
-    description: 'A portfolio showcasing projects in AI, Android development, and systems design.',
+    description: 'Explore the portfolio of Anish, a final-year Computer Science student at IIIT-Delhi. Showcasing full-stack projects using the MERN stack, AI/ML models for deception detection, and systems-level programming.',
     images: [
       {
         url: 'https://devan1shx.github.io/social-preview.png',
@@ -23,7 +26,7 @@ export const metadata: Metadata = {
   twitter: {
     card: 'summary_large_image',
     title: 'Anish | Software Engineer',
-    description: 'A portfolio showcasing projects in AI, Android development, and systems design.',
+    description: 'Explore the portfolio of Anish, a final-year Computer Science student at IIIT-Delhi. Showcasing full-stack projects using the MERN stack, AI/ML models for deception detection, and systems-level programming.',
     images: ['https://devan1shx.github.io/social-preview.png'],
   },
 };
@@ -51,3 +54,4 @@ html {
     </html>
   )
 }
+
