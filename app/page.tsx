@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useCallback, useEffect } from "react";
+import Head from "next/head";
 import {
   Download,
   ExternalLink,
@@ -247,7 +248,29 @@ export default function Portfolio() {
   };
 
   return (
-    <div className="min-h-screen bg-gray-900 text-white font-mono">
+    
+    <div className="min-h-screen bg-gray-900 text-white font-mono ">
+
+
+    <Head>
+      <title>Anish | Software Engineer</title>
+      <meta name="description" content="The portfolio of Anish, a software engineer specializing in full-stack development, AI, and building production-grade systems." />
+      <link rel="icon" href="/favicon.ico" /> 
+      
+      <meta property="og:type" content="website" />
+      <meta property="og:url" content="https://devan1shx.github.io/" />
+      <meta property="og:title" content="Anish | Software Engineer" />
+      <meta property="og:description" content="A portfolio showcasing projects in AI, Android development, and systems design." />
+      <meta property="og:image" content="https://devan1shx.github.io/social-preview.png" />
+
+      <meta property="twitter:card" content="summary_large_image" />
+      <meta property="twitter:url" content="https://devan1shx.github.io/" />
+      <meta property="twitter:title" content="Anish | Software Engineer" />
+      <meta property="twitter:description" content="A portfolio showcasing projects in AI, Android development, and systems design." />
+      <meta property="twitter:image" content="https://devan1shx.github.io/social-preview.png" />
+    </Head>
+
+
       <header className="border-b-4 border-green-400 p-4 md:p-6">
         <div className="max-w-6xl mx-auto">
           <div className="border-2 border-white p-3 md:p-4 mb-4">
