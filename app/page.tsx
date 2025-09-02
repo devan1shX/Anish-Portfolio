@@ -14,7 +14,8 @@ import {
   FolderKanban, 
   AtSign, 
   Award,
-  GraduationCap
+  GraduationCap,
+  Briefcase 
 } from "lucide-react";
 import ReactFlow, {
   useNodesState,
@@ -250,33 +251,33 @@ export default function Portfolio() {
       <header className="border-b-4 border-green-400 p-4 md:p-6">
         <div className="max-w-6xl mx-auto">
           <div className="border-2 border-white p-3 md:p-4 mb-4">
-            <h1 className="text-2xl md:text-4xl font-bold mb-2">ANISH</h1>
-            <p className="text-base md:text-xl text-green-400">
+            <h1 className="text-2xl md:text-4xl font-bold mb-2 ">ANISH</h1>
+            <p className="text-base md:text-xl text-green-400 ">
               SOFTWARE ENGINEER
             </p>
           </div>
           <nav className="flex flex-col sm:flex-row gap-3 md:gap-6">
             <a
               href="#about"
-              className="border-2 border-white px-3 py-2 md:px-4 md:py-2 hover:bg-white hover:text-black transition-none text-center text-sm md:text-base"
+              className="border-2 border-white px-3 py-2 md:px-4 md:py-2 hover:bg-white hover:text-black transition-none text-center text-sm md:text-base "
             >
               [ABOUT]
             </a>
             <a
               href="#projects"
-              className="border-2 border-white px-3 py-2 md:px-4 md:py-2 hover:bg-white hover:text-black transition-none text-center text-sm md:text-base"
+              className="border-2 border-white px-3 py-2 md:px-4 md:py-2 hover:bg-white hover:text-black transition-none text-center text-sm md:text-base "
             >
               [PROJECTS]
             </a>
             <a
               href="#resume"
-              className="border-2 border-white px-3 py-2 md:px-4 md:py-2 hover:bg-white hover:text-black transition-none text-center text-sm md:text-base"
+              className="border-2 border-white px-3 py-2 md:px-4 md:py-2 hover:bg-white hover:text-black transition-none text-center text-sm md:text-base "
             >
               [RESUME]
             </a>
             <a
               href="#contact"
-              className="border-2 border-white px-3 py-2 md:px-4 md:py-2 hover:bg-white hover:text-black transition-none text-center text-sm md:text-base"
+              className="border-2 border-white px-3 py-2 md:px-4 md:py-2 hover:bg-white hover:text-black transition-none text-center text-sm md:text-base "
             >
               [CONTACT]
             </a>
@@ -286,22 +287,22 @@ export default function Portfolio() {
 
       <section id="about" className="border-b-4 border-green-400 p-4 md:p-6">
         <div className="max-w-6xl mx-auto">
-          <h2 className="text-2xl md:text-3xl font-bold mb-6 border-b-2 border-white pb-2 flex items-center gap-3">
-            <FileText className="text-green-400" size={28} />
+          <h2 className="text-2xl md:text-3xl font-bold mb-6 border-b-2 border-white pb-2 flex items-center gap-3 ">
+            <FileText className="text-green-400 " size={28} />
             ABOUT_ME.TXT
           </h2>
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-8">
             <div className="border-2 border-white p-4 md:p-6">
-              <h3 className="text-lg md:text-xl font-bold mb-4 text-green-400">
+              <h3 className="text-lg md:text-xl font-bold mb-4 text-green-400 ">
                 DESCRIPTION:
               </h3>
-              <p className="mb-4 leading-relaxed text-sm md:text-base">
+              <p className="mb-4 leading-relaxed text-sm md:text-base ">
                 Final year Computer Science student at IIIT-Delhi with hands-on
                 experience building production systems that solve real problems.
                 From secure research portals to AI-powered chatbots, I focus on
                 creating applications that work reliably in the real world.
               </p>
-              <p className="mb-4 leading-relaxed text-sm md:text-base">
+              <p className="mb-4 leading-relaxed text-sm md:text-base ">
                 Currently leading development projects including the OTMT
                 platform ecosystem and advanced ML research in deception
                 detection using Transformers and Graph Neural Networks. Also
@@ -309,19 +310,19 @@ export default function Portfolio() {
                 LEARNING, designing curriculum and teaching app development
                 fundamentals.
               </p>
-              <h3 className="text-lg md:text-xl font-bold mb-4 text-green-400 mt-6">
+              <h3 className="text-lg md:text-xl font-bold mb-4 text-green-400 mt-6 ">
                 PHILOSOPHY:
               </h3>
-              <p className="leading-relaxed text-sm md:text-base">
+              <p className="leading-relaxed text-sm md:text-base ">
                 "The best code is code that doesn't need to exist. The second
                 best is code that's so simple it obviously has no bugs."
               </p>
             </div>
             <div className="border-2 border-white p-4 md:p-6">
-              <h3 className="text-lg md:text-xl font-bold mb-4 text-green-400">
+              <h3 className="text-lg md:text-xl font-bold mb-4 text-green-400 ">
                 SKILLS.JSON:
               </h3>
-              <pre className="text-xs md:text-sm leading-relaxed overflow-x-auto">
+              <pre className="text-xs md:text-sm leading-relaxed overflow-x-auto ">
 {`{
   "languages": [
     "Python", "JavaScript", "Java", 
@@ -350,18 +351,18 @@ export default function Portfolio() {
 
       <section id="core-competencies" className="border-b-4 border-green-400 p-4 md:p-6">
         <div className="max-w-6xl mx-auto">
-          <h2 className="text-2xl md:text-3xl font-bold mb-6 border-b-2 border-white pb-2 flex items-center gap-3">
-            <GraduationCap className="text-green-400" size={28} />
+          <h2 className="text-2xl md:text-3xl font-bold mb-6 border-b-2 border-white pb-2 flex items-center gap-3 ">
+            <GraduationCap className="text-green-400 " size={28} />
             CORE_COMPETENCIES.LOG
           </h2>
           <div className="border-2 border-white p-4 md:p-6">
-            <h3 className="text-lg md:text-xl font-bold mb-4 text-green-400">
+            <h3 className="text-lg md:text-xl font-bold mb-4 text-green-400 ">
               RELEVANT_COURSEWORK:
             </h3>
-            <p className="text-sm md:text-base leading-relaxed">
+            <p className="text-sm md:text-base leading-relaxed ">
               Key academic subjects at IIIT-Delhi  that have provided a strong theoretical foundation for my practical work in software development and AI.
             </p>
-            <div className="mt-4 grid grid-cols-2 sm:grid-cols-3 gap-2 text-sm md:text-base">
+            <div className="mt-4 grid grid-cols-2 sm:grid-cols-3 gap-2 text-sm md:text-base ">
               <div className="p-2 bg-gray-800 border border-gray-600">Machine Learning & NLP</div>
               <div className="p-2 bg-gray-800 border border-gray-600">Data Structures & Algorithms</div>
               <div className="p-2 bg-gray-800 border border-gray-600">Operating Systems</div>
@@ -375,17 +376,17 @@ export default function Portfolio() {
 
       <section id="coding" className="border-b-4 border-green-400 p-4 md:p-6">
         <div className="max-w-6xl mx-auto">
-          <h2 className="text-2xl md:text-3xl font-bold mb-6 border-b-2 border-white pb-2 flex items-center gap-3">
+          <h2 className="text-2xl md:text-3xl font-bold mb-6 border-b-2 border-white pb-2 flex items-center gap-3 ">
             <Terminal className="text-green-400" size={28} />
             PROBLEM_SOLVING.LOG
           </h2>
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-8">
             <div className="border-2 border-white p-4 md:p-6 space-y-6">
               <div>
-                <h3 className="text-lg md:text-xl font-bold text-green-400">
+                <h3 className="text-lg md:text-xl font-bold text-green-400 ">
                   LEETCODE_PROFILE:
                 </h3>
-                <p className="text-sm md:text-base mt-2 mb-3">
+                <p className="text-sm md:text-base mt-2 mb-3 " >
                   Actively solving problems to sharpen algorithmic skills.
                   <br />
                   <span className="text-white font-bold">150+</span> Problems
@@ -402,13 +403,13 @@ export default function Portfolio() {
                 </a>
               </div>
               <div>
-                <h3 className="text-lg md:text-xl font-bold text-green-400">
+                <h3 className="text-lg md:text-xl font-bold text-green-400 ">
                   GEEKSFORGEEKS_PROFILE:
                 </h3>
-                <p className="text-sm md:text-base mt-2 mb-3">
+                <p className="text-sm md:text-base mt-2 mb-3 ">
                   Practicing diverse data structures and core concepts.
                   <br />
-                  <span className="text-white font-bold">100+</span> Problems
+                  <span className="text-white font-bold ">100+</span> Problems
                   Solved.
                 </p>
                 <a
@@ -423,7 +424,7 @@ export default function Portfolio() {
               </div>
             </div>
 
-            <div className="border-2 border-white p-4 md:p-6">
+            <div className="border-2 border-white p-4 md:p-6 ">
               <h3 className="text-lg md:text-xl font-bold mb-4 text-green-400">
                 STRENGTHS.CFG:
               </h3>
@@ -449,10 +450,10 @@ export default function Portfolio() {
                 </div>
               </section>
 
-      <section id="projects" className="border-b-4 border-green-400 p-4 md:p-6">
+      <section id="projects" className="border-b-4 border-green-400 p-4 md:p-6 ">
         <div className="max-w-6xl mx-auto">
           <h2 className="text-2xl md:text-3xl font-bold mb-6 border-b-2 border-white pb-2 flex items-center gap-3">
-            <FolderKanban className="text-green-400" size={28} />
+            <Briefcase  className="text-green-400" size={28} />
             PROJECTS.DIR
           </h2>
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
@@ -462,11 +463,12 @@ export default function Portfolio() {
                   DOCUMENT_SCANNER_APP
                 </h3>
               </div>
-              <div className="p-4 md:p-6">
+              <div className="p-4 md:p-6 ">
                 <img
                   src="/docuScan.png"
                   alt="Document Scanner App Interface"
                   className="w-full h-32 md:h-48 object-cover border-2 border-white mb-4 cursor-pointer hover:opacity-80 transition-opacity"
+                  draggable="false"
                   onClick={() => {
                     setShowScannerModal(true);
                     setCurrentScannerImage("/1.jpg");
@@ -558,6 +560,7 @@ export default function Portfolio() {
                   src="/stick_hero.png"
                   alt="Stick Hero Game Screenshot"
                   className="w-full h-32 md:h-48 object-contain border-2 border-white mb-4 bg-gray-800"
+                  draggable="false"
                 />
                 <p className="mb-4 text-sm md:text-base">
                   JavaFX stick-man arcade game with cherry collection mechanics
@@ -594,6 +597,7 @@ export default function Portfolio() {
                   src="/operating_system.png"
                   alt="Operating System Interface"
                   className="w-full h-32 md:h-48 object-contain border-2 border-white mb-4 bg-gray-800"
+                  draggable="false"
                 />
                 <p className="mb-4 text-sm md:text-base">
                   Custom operating system with priority-based CPU scheduler in
@@ -628,6 +632,7 @@ export default function Portfolio() {
                   src="/noc.png"
                   alt="Network on Chip Design"
                   className="w-full h-32 md:h-48 object-contain border-2 border-white mb-4 bg-gray-800"
+                  draggable="false"
                 />
                 <p className="mb-4 text-sm md:text-base">
                   Designed and implemented novel Network-on-Chip configurations
@@ -656,7 +661,7 @@ export default function Portfolio() {
         </div>
       </section>
 
-      <section id="setup" className="border-b-4 border-green-400 p-4 md:p-6">
+      <section id="setup" className="border-b-4 border-green-400 p-4 md:p-6 ">
         <div className="max-w-6xl mx-auto">
           <h2 className="text-2xl md:text-3xl font-bold mb-6 border-b-2 border-white pb-2 flex items-center gap-3">
             <SlidersHorizontal className="text-green-400" size={28} />
@@ -692,7 +697,7 @@ music = "Spotify (Lo-fi beats for focus)"
         </div>
       </section>
 
-      <section id="leadership" className="border-b-4 border-green-400 p-4 md:p-6">
+      <section id="leadership" className="border-b-4 border-green-400 p-4 md:p-6 ">
         <div className="max-w-6xl mx-auto">
           <h2 className="text-2xl md:text-3xl font-bold mb-6 border-b-2 border-white pb-2 flex items-center gap-3">
             <Award className="text-green-400" size={28} />
@@ -735,7 +740,7 @@ music = "Spotify (Lo-fi beats for focus)"
         </div>
       </section>
 
-      <section id="resume" className="border-b-4 border-green-400 p-4 md:p-6">
+      <section id="resume" className="border-b-4 border-green-400 p-4 md:p-6 ">
         <div className="max-w-6xl mx-auto">
           <h2 className="text-2xl md:text-3xl font-bold mb-6 border-b-2 border-white pb-2 flex items-center gap-3">
             <FolderKanban className="text-green-400" size={28} />
@@ -874,7 +879,7 @@ music = "Spotify (Lo-fi beats for focus)"
         </div>
       </section>
 
-      <section id="contact" className="p-4 md:p-6">
+      <section id="contact" className="p-4 md:p-6 ">
         <div className="max-w-6xl mx-auto">
           <h2 className="text-2xl md:text-3xl font-bold mb-6 border-b-2 border-white pb-2 flex items-center gap-3">
             <AtSign className="text-green-400" size={28} />
@@ -932,7 +937,7 @@ music = "Spotify (Lo-fi beats for focus)"
       </section>
 
       <footer className="border-t-4 border-green-400 p-4 md:p-6 text-center">
-        <p className="text-green-400 text-xs md:text-sm">
+        <p className="text-green-400 text-xs md:text-sm ">
           © 2025 Anish | Crafted with Next.js & Tailwind | Deployed on Github
         </p>
       </footer>
@@ -962,7 +967,7 @@ music = "Spotify (Lo-fi beats for focus)"
         <div className="fixed inset-0 bg-black bg-opacity-75 flex items-center justify-center z-50 p-2 md:p-4">
           <div className="bg-gray-900 border-4 border-green-400 max-w-4xl w-full h-auto max-h-[95vh] md:max-h-[90vh] overflow-hidden flex flex-col">
             <div className="border-b-2 border-green-400 p-3 md:p-4 flex justify-between items-center bg-green-400 text-black">
-              <h3 className="text-sm md:text-xl font-bold">
+              <h3 className="text-sm md:text-xl font-bold ">
                 DOCUMENT_SCANNER_APP GALLERY
               </h3>
               <button
@@ -973,7 +978,7 @@ music = "Spotify (Lo-fi beats for focus)"
               </button>
             </div>
             <div className="p-4 md:p-6 flex-grow overflow-y-auto">
-              <div className="text-center mb-2 text-green-400 font-bold tracking-widest text-sm md:text-base">
+              <div className="text-center mb-2 text-green-400 font-bold tracking-widest text-sm md:text-base ">
                 {`IMAGE ${currentScannerImage.replace(
                   /[^0-9]/g,
                   ""
@@ -987,6 +992,7 @@ music = "Spotify (Lo-fi beats for focus)"
                     ""
                   )}`}
                   className="w-full h-auto object-contain max-h-[50vh] md:max-h-[60vh] bg-gray-800"
+                  draggable="false"
                 />
               </div>
               <div className="grid grid-cols-3 sm:grid-cols-5 md:grid-cols-9 gap-1 md:gap-2">
@@ -1005,6 +1011,7 @@ music = "Spotify (Lo-fi beats for focus)"
                         src={`/${num}.jpg`}
                         alt={`Thumbnail ${num}`}
                         className="w-full h-auto object-cover aspect-square bg-gray-700"
+                        draggable="false"
                       />
                     </div>
                   )
