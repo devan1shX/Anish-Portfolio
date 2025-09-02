@@ -22,7 +22,7 @@ import "reactflow/dist/style.css";
 export default function Portfolio() {
   const [showGraphModal, setShowGraphModal] = useState(false);
   const [showScannerModal, setShowScannerModal] = useState(false);
-  const [currentScannerImage, setCurrentScannerImage] = useState("/Anish-Portfolio/1.jpg");
+  const [currentScannerImage, setCurrentScannerImage] = useState("/devan1shX/1.jpg");
   const scannerImageCount = 9;
 
   useEffect(() => {
@@ -342,12 +342,12 @@ export default function Portfolio() {
               </div>
               <div className="p-4 md:p-6">
                 <img
-                  src="/Anish-Portfolio/docuScan.png"
+                  src="/devan1shX/docuScan.png"
                   alt="Document Scanner App Interface"
                   className="w-full h-32 md:h-48 object-cover border-2 border-white mb-4 cursor-pointer hover:opacity-80 transition-opacity"
                   onClick={() => {
                     setShowScannerModal(true);
-                    setCurrentScannerImage("/Anish-Portfolio/1.jpg");
+                    setCurrentScannerImage("/devan1shX/1.jpg");
                   }}
                 />
                 <p className="mb-4 text-sm md:text-base">
@@ -371,7 +371,7 @@ export default function Portfolio() {
                     CODE
                   </a>
                   <a
-                  href="/Anish-Portfolio/base.apk"
+                  href="/devan1shX/base.apk"
                   download="base.apk"
                   className="border-2 border-white px-3 py-1 hover:bg-white hover:text-black flex items-center gap-2 justify-center text-sm md:text-base"
                 >
@@ -429,7 +429,7 @@ export default function Portfolio() {
               </div>
               <div className="p-4 md:p-6">
                 <img
-                  src="/Anish-Portfolio/stick_hero.png"
+                  src="/devan1shX/stick_hero.png"
                   alt="Stick Hero Game Screenshot"
                   className="w-full h-32 md:h-48 object-contain border-2 border-white mb-4 bg-gray-800"
                 />
@@ -463,7 +463,7 @@ export default function Portfolio() {
               </div>
               <div className="p-4 md:p-6">
                 <img
-                  src="/Anish-Portfolio/operating_system.png"
+                  src="/devan1shX/operating_system.png"
                   alt="Operating System Interface"
                   className="w-full h-32 md:h-48 object-contain border-2 border-white mb-4 bg-gray-800"
                 />
@@ -495,7 +495,7 @@ export default function Portfolio() {
               </div>
               <div className="p-4 md:p-6">
                 <img
-                  src="/Anish-Portfolio/noc.png"
+                  src="/devan1shX/noc.png"
                   alt="Network on Chip Design"
                   className="w-full h-32 md:h-48 object-contain border-2 border-white mb-4 bg-gray-800"
                 />
@@ -632,7 +632,7 @@ export default function Portfolio() {
 
               <div className="mt-6 md:mt-8">
                 <a
-                  href="/Anish-Portfolio/resume.pdf"
+                  href="/devan1shX/resume.pdf"
                   download="Anish_Resume.pdf"
                   className="border-2 border-green-400 bg-green-400 text-black px-4 py-2 hover:bg-black hover:text-green-400 flex items-center gap-2 justify-center text-sm md:text-base w-full"
                 >
@@ -755,15 +755,15 @@ export default function Portfolio() {
                 {Array.from({ length: scannerImageCount }, (_, i) => i + 1).map((num) => (
                   <div
                     key={num}
-                    onClick={() => setCurrentScannerImage(`/Anish-Portfolio/${num}.jpg`)}
+                    onClick={() => setCurrentScannerImage(`/devan1shX/${num}.jpg`)}
                     className={`border-2 cursor-pointer transition-all ${
-                      currentScannerImage === `/Anish-Portfolio/${num}.jpg`
+                      currentScannerImage === `/devan1shX/${num}.jpg`
                         ? "border-green-400 scale-105"
                         : "border-white hover:border-green-400"
                     }`}
                   >
                     <img
-                      src={`/Anish-Portfolio/${num}.jpg`}
+                      src={`/devan1shX/${num}.jpg`}
                       alt={`Thumbnail ${num}`}
                       className="w-full h-auto object-cover aspect-square bg-gray-700"
                     />
