@@ -4,7 +4,7 @@ import { GeistMono } from 'geist/font/mono'
 import './globals.css'
 
 export const metadata: Metadata = {
-  title: 'Anish | Software Engineer',
+  title: 'devan1shX',
   description: 'Explore the portfolio of Anish, a final-year Computer Science student at IIIT-Delhi. Showcasing full-stack projects using the MERN stack, AI/ML models for deception detection, and systems-level programming.',
   
   authors: [{ name: 'Anish', url: 'https://devan1shx.github.io/' }],
@@ -54,4 +54,5 @@ html {
     </html>
   )
 }
+
 
