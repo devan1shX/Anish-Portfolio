@@ -13,7 +13,8 @@ import {
   FileText, 
   FolderKanban, 
   AtSign, 
-  Award
+  Award,
+  GraduationCap
 } from "lucide-react";
 import ReactFlow, {
   useNodesState,
@@ -342,6 +343,31 @@ export default function Portfolio() {
   ]
 }`}
 </pre>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="core-competencies" className="border-b-4 border-green-400 p-4 md:p-6">
+        <div className="max-w-6xl mx-auto">
+          <h2 className="text-2xl md:text-3xl font-bold mb-6 border-b-2 border-white pb-2 flex items-center gap-3">
+            <GraduationCap className="text-green-400" size={28} />
+            CORE_COMPETENCIES.LOG
+          </h2>
+          <div className="border-2 border-white p-4 md:p-6">
+            <h3 className="text-lg md:text-xl font-bold mb-4 text-green-400">
+              RELEVANT_COURSEWORK:
+            </h3>
+            <p className="text-sm md:text-base leading-relaxed">
+              Key academic subjects at IIIT-Delhi  that have provided a strong theoretical foundation for my practical work in software development and AI.
+            </p>
+            <div className="mt-4 grid grid-cols-2 sm:grid-cols-3 gap-2 text-sm md:text-base">
+              <div className="p-2 bg-gray-800 border border-gray-600">Machine Learning & NLP</div>
+              <div className="p-2 bg-gray-800 border border-gray-600">Data Structures & Algorithms</div>
+              <div className="p-2 bg-gray-800 border border-gray-600">Operating Systems</div>
+              <div className="p-2 bg-gray-800 border border-gray-600">Computer Networks</div>
+              <div className="p-2 bg-gray-800 border border-gray-600">Database Management Systems</div>
+              <div className="p-2 bg-gray-800 border border-gray-600">Artificial Intelligence</div>
             </div>
           </div>
         </div>
