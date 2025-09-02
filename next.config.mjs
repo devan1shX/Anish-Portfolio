@@ -2,7 +2,7 @@
 const nextConfig = {
   output: 'export',
 
-  basePath: '/devan1shX',
+  basePath: '',
   images: {
     unoptimized: true,
   },
@@ -17,3 +17,4 @@ const nextConfig = {
 
 
 export default nextConfig
+
