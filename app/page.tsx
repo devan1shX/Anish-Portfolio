@@ -254,7 +254,7 @@ export default function Portfolio() {
           <div className="border-2 border-white p-3 md:p-4 mb-4">
             <h1 className="text-2xl md:text-4xl font-bold mb-2 ">ANISH</h1>
             <p className="text-base md:text-xl text-green-400 ">
-              SOFTWARE ENGINEER
+              AI ENGINEER & FULL STACK DEVELOPER
             </p>
           </div>
           <nav className="flex flex-col sm:flex-row gap-3 md:gap-6">
@@ -1025,3 +1025,4 @@ music = "Spotify (Lo-fi beats for focus)"
     </div>
   );
 }
+
