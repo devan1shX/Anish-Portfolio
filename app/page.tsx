@@ -28,6 +28,7 @@ import ReactFlow, {
 } from "reactflow";
 import "reactflow/dist/style.css";
 import SystemFooter from "./components/SystemFooter";
+import LiveHeader from "./components/LiveHeader";
 
 export default function Portfolio() {
   const handleNavClick = (
@@ -340,12 +341,7 @@ export default function Portfolio() {
     <div className="min-h-screen bg-gray-900 text-white font-mono ">
       <header className="border-b-4 border-green-400 p-4 md:p-6">
         <div className="max-w-6xl mx-auto">
-          <div className="border-2 border-white p-3 md:p-4 mb-4">
-            <h1 className="text-2xl md:text-4xl font-bold mb-2 ">ANISH</h1>
-            <p className="text-base md:text-xl text-green-400 ">
-              AI ENGINEER & FULL STACK DEVELOPER
-            </p>
-          </div>
+          <LiveHeader />
           <nav className="flex flex-col sm:flex-row gap-3 md:gap-6">
             <a
               href="#about"
@@ -1293,4 +1289,5 @@ music = "Spotify (Lo-fi beats for focus)"
     </div>
   );
 }
+
 
