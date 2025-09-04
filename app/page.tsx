@@ -10,12 +10,13 @@ import {
   X,
   Terminal,
   SlidersHorizontal,
-  FileText, 
-  FolderKanban, 
-  AtSign, 
+  FileText,
+  FolderKanban,
+  AtSign,
   Award,
   GraduationCap,
-  Briefcase 
+  Briefcase,
+  Check,
 } from "lucide-react";
 import ReactFlow, {
   useNodesState,
@@ -28,10 +29,31 @@ import ReactFlow, {
 import "reactflow/dist/style.css";
 
 export default function Portfolio() {
+  const handleNavClick = (
+    e: React.MouseEvent<HTMLAnchorElement, MouseEvent>
+  ) => {
+    e.preventDefault();
+
+    const href = e.currentTarget.href;
+    const targetId = href.replace(/.*\#/, "");
+
+    const targetElement = document.getElementById(targetId);
+
+    if (targetElement) {
+      targetElement.scrollIntoView({ behavior: "smooth" });
+    }
+  };
+  const [isClient, setIsClient] = useState(false);
+
+  useEffect(() => {
+    setIsClient(true);
+  }, []);
   const [showGraphModal, setShowGraphModal] = useState(false);
   const [showScannerModal, setShowScannerModal] = useState(false);
   const [currentScannerImage, setCurrentScannerImage] = useState("/1.jpg");
   const scannerImageCount = 9;
+
+  const [activeContact, setActiveContact] = useState("email");
 
   useEffect(() => {
     if (showGraphModal || showScannerModal) {
@@ -42,6 +64,73 @@ export default function Portfolio() {
       document.body.style.overflow = "unset";
     };
   }, [showGraphModal, showScannerModal]);
+
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    subject: "",
+    message: "",
+  });
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitStatus, setSubmitStatus] = useState("");
+
+  useEffect(() => {
+    if (submitStatus) {
+      const timer = setTimeout(() => {
+        setSubmitStatus("");
+      }, 5000);
+
+      return () => clearTimeout(timer);
+    }
+  }, [submitStatus]);
+
+  const validateEmail = (email) => {
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return emailRegex.test(email);
+  };
+
+  const handleInputChange = (e) => {
+    setFormData({
+      ...formData,
+      [e.target.name]: e.target.value,
+    });
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    if (!validateEmail(formData.email)) {
+      setSubmitStatus("Please enter a valid email address");
+      return;
+    }
+
+    setIsSubmitting(true);
+    setSubmitStatus("");
+
+    const googleFormData = new FormData();
+    googleFormData.append("entry.816679585", formData.name);
+    googleFormData.append("entry.1364646092", formData.email);
+    googleFormData.append("entry.1898981440", formData.subject);
+    googleFormData.append("entry.326277647", formData.message);
+
+    try {
+      await fetch(
+        "https://docs.google.com/forms/d/e/1FAIpQLSemzj8IouWrZiK7jRoYq0R8Bpy6oVeS-DGQm3C10v0XfgjzGQ/formResponse",
+        {
+          method: "POST",
+          body: googleFormData,
+          mode: "no-cors",
+        }
+      );
+
+      setSubmitStatus("success");
+      setFormData({ name: "", email: "", subject: "", message: "" });
+    } catch (error) {
+      setSubmitStatus("success");
+    }
+
+    setIsSubmitting(false);
+  };
 
   const InteractiveModelDiagram = () => {
     const initialNodes = [
@@ -247,7 +336,6 @@ export default function Portfolio() {
   };
 
   return (
-    
     <div className="min-h-screen bg-gray-900 text-white font-mono ">
       <header className="border-b-4 border-green-400 p-4 md:p-6">
         <div className="max-w-6xl mx-auto">
@@ -260,24 +348,28 @@ export default function Portfolio() {
           <nav className="flex flex-col sm:flex-row gap-3 md:gap-6">
             <a
               href="#about"
+              onClick={handleNavClick}
               className="border-2 border-white px-3 py-2 md:px-4 md:py-2 hover:bg-white hover:text-black transition-none text-center text-sm md:text-base "
             >
               [ABOUT]
             </a>
             <a
               href="#projects"
+              onClick={handleNavClick}
               className="border-2 border-white px-3 py-2 md:px-4 md:py-2 hover:bg-white hover:text-black transition-none text-center text-sm md:text-base "
             >
               [PROJECTS]
             </a>
             <a
               href="#resume"
+              onClick={handleNavClick}
               className="border-2 border-white px-3 py-2 md:px-4 md:py-2 hover:bg-white hover:text-black transition-none text-center text-sm md:text-base "
             >
               [RESUME]
             </a>
             <a
               href="#contact"
+              onClick={handleNavClick}
               className="border-2 border-white px-3 py-2 md:px-4 md:py-2 hover:bg-white hover:text-black transition-none text-center text-sm md:text-base "
             >
               [CONTACT]
@@ -324,7 +416,7 @@ export default function Portfolio() {
                 SKILLS.JSON:
               </h3>
               <pre className="text-xs md:text-sm leading-relaxed overflow-x-auto ">
-{`{
+                {`{
   "languages": [
     "Python", "JavaScript", "Java", 
     "C++", "Kotlin", "SQL"
@@ -344,13 +436,16 @@ export default function Portfolio() {
     "Jetpack Compose", "Android", "JavaFX"
   ]
 }`}
-</pre>
+              </pre>
             </div>
           </div>
         </div>
       </section>
 
-      <section id="core-competencies" className="border-b-4 border-green-400 p-4 md:p-6">
+      <section
+        id="core-competencies"
+        className="border-b-4 border-green-400 p-4 md:p-6"
+      >
         <div className="max-w-6xl mx-auto">
           <h2 className="text-2xl md:text-3xl font-bold mb-6 border-b-2 border-white pb-2 flex items-center gap-3 ">
             <GraduationCap className="text-green-400 " size={28} />
@@ -361,15 +456,29 @@ export default function Portfolio() {
               RELEVANT_COURSEWORK:
             </h3>
             <p className="text-sm md:text-base leading-relaxed ">
-              Key academic subjects at IIIT-Delhi  that have provided a strong theoretical foundation for my practical work in software development and AI.
+              Key academic subjects at IIIT-Delhi that have provided a strong
+              theoretical foundation for my practical work in software
+              development and AI.
             </p>
             <div className="mt-4 grid grid-cols-2 sm:grid-cols-3 gap-2 text-sm md:text-base ">
-              <div className="p-2 bg-gray-800 border border-gray-600">Machine Learning & NLP</div>
-              <div className="p-2 bg-gray-800 border border-gray-600">Data Structures & Algorithms</div>
-              <div className="p-2 bg-gray-800 border border-gray-600">Operating Systems</div>
-              <div className="p-2 bg-gray-800 border border-gray-600">Computer Networks</div>
-              <div className="p-2 bg-gray-800 border border-gray-600">Database Management Systems</div>
-              <div className="p-2 bg-gray-800 border border-gray-600">Artificial Intelligence</div>
+              <div className="p-2 bg-gray-800 border border-gray-600">
+                Machine Learning & NLP
+              </div>
+              <div className="p-2 bg-gray-800 border border-gray-600">
+                Data Structures & Algorithms
+              </div>
+              <div className="p-2 bg-gray-800 border border-gray-600">
+                Operating Systems
+              </div>
+              <div className="p-2 bg-gray-800 border border-gray-600">
+                Computer Networks
+              </div>
+              <div className="p-2 bg-gray-800 border border-gray-600">
+                Database Management Systems
+              </div>
+              <div className="p-2 bg-gray-800 border border-gray-600">
+                Artificial Intelligence
+              </div>
             </div>
           </div>
         </div>
@@ -387,14 +496,14 @@ export default function Portfolio() {
                 <h3 className="text-lg md:text-xl font-bold text-green-400 ">
                   LEETCODE_PROFILE:
                 </h3>
-                <p className="text-sm md:text-base mt-2 mb-3 " >
+                <p className="text-sm md:text-base mt-2 mb-3 ">
                   Actively solving problems to sharpen algorithmic skills.
                   <br />
                   <span className="text-white font-bold">150+</span> Problems
                   Solved.
                 </p>
                 <a
-                  href="https://leetcode.com/u/devan1shX/" 
+                  href="https://leetcode.com/u/devan1shX/"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="border-2 border-white px-3 py-2 hover:bg-white hover:text-black flex items-center gap-2 justify-center sm:inline-flex"
@@ -414,7 +523,7 @@ export default function Portfolio() {
                   Solved.
                 </p>
                 <a
-                  href="https://www.geeksforgeeks.org/user/devan1shx/" 
+                  href="https://www.geeksforgeeks.org/user/devan1shx/"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="border-2 border-white px-3 py-2 hover:bg-white hover:text-black flex items-center gap-2 justify-center sm:inline-flex"
@@ -430,7 +539,7 @@ export default function Portfolio() {
                 STRENGTHS.CFG:
               </h3>
               <pre className="text-xs md:text-sm leading-relaxed overflow-x-auto">
-{`# Key areas of expertise in algorithms and data structures
+                {`# Key areas of expertise in algorithms and data structures
 
 [preferred_topics]
 - Dynamic Programming
@@ -445,16 +554,19 @@ export default function Portfolio() {
 3. IMPLEMENT_BRUTEFORCE (if needed)
 4. OPTIMIZE_SOLUTION
 5. TEST_EDGE_CASES`}
-                </pre>
-                    </div>
-                  </div>
-                </div>
-              </section>
+              </pre>
+            </div>
+          </div>
+        </div>
+      </section>
 
-      <section id="projects" className="border-b-4 border-green-400 p-4 md:p-6 ">
+      <section
+        id="projects"
+        className="border-b-4 border-green-400 p-4 md:p-6 "
+      >
         <div className="max-w-6xl mx-auto">
           <h2 className="text-2xl md:text-3xl font-bold mb-6 border-b-2 border-white pb-2 flex items-center gap-3">
-            <Briefcase  className="text-green-400" size={28} />
+            <Briefcase className="text-green-400" size={28} />
             PROJECTS.DIR
           </h2>
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
@@ -698,7 +810,10 @@ music = "Spotify (Lo-fi beats for focus)"
         </div>
       </section>
 
-      <section id="leadership" className="border-b-4 border-green-400 p-4 md:p-6 ">
+      <section
+        id="leadership"
+        className="border-b-4 border-green-400 p-4 md:p-6 "
+      >
         <div className="max-w-6xl mx-auto">
           <h2 className="text-2xl md:text-3xl font-bold mb-6 border-b-2 border-white pb-2 flex items-center gap-3">
             <Award className="text-green-400" size={28} />
@@ -714,10 +829,12 @@ music = "Spotify (Lo-fi beats for focus)"
               </p>
               <ul className="list-disc list-inside space-y-1 text-sm md:text-base">
                 <li>
-                  Designed and delivered app development curriculum for 10+ students.
+                  Designed and delivered app development curriculum for 10+
+                  students.
                 </li>
                 <li>
-                  Mentored students on leadership projects using design thinking strategies.
+                  Mentored students on leadership projects using design thinking
+                  strategies.
                 </li>
               </ul>
             </div>
@@ -733,7 +850,8 @@ music = "Spotify (Lo-fi beats for focus)"
                   Acted as the primary liaison for over 80 students and faculty.
                 </li>
                 <li>
-                  Organized class-wide academic initiatives and communicated feedback.
+                  Organized class-wide academic initiatives and communicated
+                  feedback.
                 </li>
               </ul>
             </div>
@@ -745,7 +863,7 @@ music = "Spotify (Lo-fi beats for focus)"
         <div className="max-w-6xl mx-auto">
           <h2 className="text-2xl md:text-3xl font-bold mb-6 border-b-2 border-white pb-2 flex items-center gap-3">
             <FolderKanban className="text-green-400" size={28} />
-            PROJECTS.DIR
+            RESUME.MD
           </h2>
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 lg:gap-8">
             <div className="lg:col-span-2 border-2 border-white p-4 md:p-6">
@@ -880,59 +998,212 @@ music = "Spotify (Lo-fi beats for focus)"
         </div>
       </section>
 
-      <section id="contact" className="p-4 md:p-6 ">
+      <section id="contact" className="p-4 md:p-6">
         <div className="max-w-6xl mx-auto">
           <h2 className="text-2xl md:text-3xl font-bold mb-6 border-b-2 border-white pb-2 flex items-center gap-3">
             <AtSign className="text-green-400" size={28} />
             CONTACT.SH
           </h2>
-          <div className="border-2 border-white p-6 md:p-8">
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
-              <div className="text-center">
-                <Mail size={48} className="mx-auto mb-4 text-green-400" />
-                <h3 className="font-bold mb-2 text-sm md:text-base">EMAIL</h3>
-                <a
-                  href="mailto:anishdewat@gmail.com"
-                  className="border-2 border-white px-3 md:px-4 py-2 hover:bg-white hover:text-black inline-block text-xs md:text-sm break-all"
-                >
-                  anishdewat@gmail.com
-                </a>
+
+          {isClient && (
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-8">
+              <div className="border-2 border-white p-4 md:p-6 flex flex-col h-full">
+                <div className="flex-grow flex flex-col items-center justify-center text-center border-b-2 border-gray-700 pb-6 mb-4">
+                  {activeContact === "email" && (
+                    <div className="flex flex-col items-center justify-center">
+                      <Mail size={48} className="text-green-400 mb-4" />
+                      <p className="text-sm text-gray-400">Email Address</p>
+                      <p className="text-lg font-bold break-all">
+                        anishdewat@gmail.com
+                      </p>
+                      <a
+                        href="mailto:anishdewat@gmail.com"
+                        className="mt-6 border-2 border-green-400 bg-green-400 text-black px-6 py-2 hover:bg-black hover:text-green-400 flex items-center gap-2 transition-colors duration-200"
+                      >
+                        <ExternalLink size={16} />
+                        <span>Initiate Transmission</span>
+                      </a>
+                    </div>
+                  )}
+                  {activeContact === "github" && (
+                    <div className="flex flex-col items-center justify-center">
+                      <Github size={48} className="text-green-400 mb-4" />
+                      <p className="text-sm text-gray-400">GitHub Profile</p>
+                      <p className="text-lg font-bold break-all">
+                        github.com/devan1shX
+                      </p>
+                      <a
+                        href="https://github.com/devan1shX"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="mt-6 border-2 border-green-400 bg-green-400 text-black px-6 py-2 hover:bg-black hover:text-green-400 flex items-center gap-2 transition-colors duration-200"
+                      >
+                        <ExternalLink size={16} />
+                        <span>View Source Code</span>
+                      </a>
+                    </div>
+                  )}
+                  {activeContact === "linkedin" && (
+                    <div className="flex flex-col items-center justify-center">
+                      <Linkedin size={48} className="text-green-400 mb-4" />
+                      <p className="text-sm text-gray-400">LinkedIn Profile</p>
+                      <p className="text-lg font-bold break-all">
+                        linkedin.com/in/devan1shX
+                      </p>
+                      <a
+                        href="https://www.linkedin.com/in/devan1shX/"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="mt-6 border-2 border-green-400 bg-green-400 text-black px-6 py-2 hover:bg-black hover:text-green-400 flex items-center gap-2 transition-colors duration-200"
+                      >
+                        <ExternalLink size={16} />
+                        <span>View Professional Network</span>
+                      </a>
+                    </div>
+                  )}
+                </div>
+
+                <div>
+                  <p className="text-center text-sm text-gray-400 mb-3 tracking-wider">
+                    Open a direct channel
+                  </p>
+                  <div className="grid grid-cols-3 gap-2">
+                    <button
+                      onClick={() => setActiveContact("email")}
+                      className={`p-2 border-2 text-sm font-bold transition-colors duration-200 ${
+                        activeContact === "email"
+                          ? "bg-white text-black"
+                          : "border-white text-white hover:bg-gray-700"
+                      }`}
+                    >
+                      EMAIL
+                    </button>
+                    <button
+                      onClick={() => setActiveContact("github")}
+                      className={`p-2 border-2 text-sm font-bold transition-colors duration-200 ${
+                        activeContact === "github"
+                          ? "bg-white text-black"
+                          : "border-white text-white hover:bg-gray-700"
+                      }`}
+                    >
+                      GITHUB
+                    </button>
+                    <button
+                      onClick={() => setActiveContact("linkedin")}
+                      className={`p-2 border-2 text-sm font-bold transition-colors duration-200 ${
+                        activeContact === "linkedin"
+                          ? "bg-white text-black"
+                          : "border-white text-white hover:bg-gray-700"
+                      }`}
+                    >
+                      LINKEDIN
+                    </button>
+                  </div>
+                </div>
               </div>
 
-              <div className="text-center">
-                <Github size={48} className="mx-auto mb-4 text-green-400" />
-                <h3 className="font-bold mb-2 text-sm md:text-base">GITHUB</h3>
-                <a
-                  href="https://github.com/devan1shX"
-                  className="border-2 border-white px-3 md:px-4 py-2 hover:bg-white hover:text-black inline-block text-xs md:text-sm break-all"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  github.com/devan1shX
-                </a>
-              </div>
-
-              <div className="text-center">
-                <Linkedin size={48} className="mx-auto mb-4 text-green-400" />
-                <h3 className="font-bold mb-2 text-sm md:text-base">
-                  LINKEDIN
+              <div className="border-2 border-white p-6 md:p-8">
+                <h3 className="text-lg md:text-xl font-bold mb-6 text-green-400">
+                  SEND_MESSAGE:
                 </h3>
-                <a
-                  href="https://www.linkedin.com/in/devan1shX/"
-                  className="border-2 border-white px-3 md:px-4 py-2 hover:bg-white hover:text-black inline-block text-xs md:text-sm break-all"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  linkedin.com/in/devan1shX
-                </a>
+                <form onSubmit={handleSubmit} className="space-y-4">
+                  <div>
+                    <label className="block text-sm md:text-base font-bold mb-2">
+                      NAME*
+                    </label>
+                    <input
+                      type="text"
+                      name="name"
+                      value={formData.name}
+                      onChange={handleInputChange}
+                      required
+                      className="w-full bg-gray-800 border-2 border-white p-2 md:p-3 text-white focus:border-green-400 focus:outline-none text-sm md:text-base"
+                      placeholder="Enter your name"
+                    />
+                  </div>
+                  <div>
+                    <label className="block text-sm md:text-base font-bold mb-2">
+                      EMAIL*
+                    </label>
+                    <input
+                      type="email"
+                      name="email"
+                      value={formData.email}
+                      onChange={handleInputChange}
+                      required
+                      className="w-full bg-gray-800 border-2 border-white p-2 md:p-3 text-white focus:border-green-400 focus:outline-none text-sm md:text-base"
+                      placeholder="Enter your email"
+                    />
+                  </div>
+                  <div>
+                    <label className="block text-sm md:text-base font-bold mb-2">
+                      SUBJECT*
+                    </label>
+                    <input
+                      type="text"
+                      name="subject"
+                      value={formData.subject}
+                      onChange={handleInputChange}
+                      required
+                      className="w-full bg-gray-800 border-2 border-white p-2 md:p-3 text-white focus:border-green-400 focus:outline-none text-sm md:text-base"
+                      placeholder="Enter subject"
+                    />
+                  </div>
+                  <div>
+                    <label className="block text-sm md:text-base font-bold mb-2">
+                      MESSAGE*
+                    </label>
+                    <textarea
+                      name="message"
+                      value={formData.message}
+                      onChange={handleInputChange}
+                      rows={5}
+                      required
+                      className="w-full bg-gray-800 border-2 border-white p-2 md:p-3 text-white focus:border-green-400 focus:outline-none resize-none text-sm md:text-base"
+                      placeholder="Enter your message"
+                    />
+                  </div>
+
+                  <button
+                    type="submit"
+                    disabled={isSubmitting || submitStatus === "success"}
+                    className={`w-full px-4 py-3 font-bold flex items-center gap-2 justify-center text-sm md:text-base transition-all duration-300 ease-in-out ${
+                      isSubmitting
+                        ? "bg-gray-600 text-gray-300 cursor-not-allowed border-gray-600"
+                        : submitStatus === "success"
+                        ? "bg-green-500 text-black border-green-500 cursor-default"
+                        : "bg-green-400 text-black border-2 border-green-400 hover:bg-black hover:text-green-400"
+                    }`}
+                  >
+                    {isSubmitting ? (
+                      "SENDING..."
+                    ) : submitStatus === "success" ? (
+                      <>
+                        <Check size={18} className="checkmark-icon" />
+                        MESSAGE SENT
+                      </>
+                    ) : (
+                      <>
+                        <Mail size={16} />
+                        SEND_MESSAGE
+                      </>
+                    )}
+                  </button>
+                </form>
+
+                {submitStatus && submitStatus !== "success" && (
+                  <div className="mt-4 p-3 border-2 text-center text-sm md:text-base border-red-400 text-red-400">
+                    {submitStatus}
+                  </div>
+                )}
               </div>
             </div>
+          )}
 
-            <div className="mt-6 md:mt-8 text-center">
-              <p className="text-green-400 font-bold text-sm md:text-base">
-                $ echo "Let's build something that works."
-              </p>
-            </div>
+          <div className="mt-6 md:mt-8 text-center">
+            <p className="text-green-400 font-bold text-sm md:text-base">
+              $ echo "Let's build something that works."
+            </p>
           </div>
         </div>
       </section>
@@ -1025,4 +1296,3 @@ music = "Spotify (Lo-fi beats for focus)"
     </div>
   );
 }
-
