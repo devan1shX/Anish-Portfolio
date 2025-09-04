@@ -13,7 +13,7 @@ const CommandOutput = ({ command, output }: { command: string, output: React.Rea
   </div>
 );
 
-const Terminal = () => {
+const Terminal = ({ onClose }: { onClose: () => void }) => {
   const [input, setInput] = useState('');
   const [history, setHistory] = useState<{ command: string, output: React.ReactNode }[]>([]);
   const endOfTerminalRef = useRef<HTMLDivElement>(null);
@@ -27,6 +27,7 @@ const Terminal = () => {
         <li><span className="font-bold text-green-400">socials</span> - Display my social media links.</li>
         <li><span className="font-bold text-green-400">neofetch</span> - Display system information.</li>
         <li><span className="font-bold text-green-400">clear</span> - Clear the terminal history.</li>
+        <li><span className="font-bold text-green-400">exit</span> - Close the terminal.</li>
       </ul>
     ),
     whoami: "You are visiting the portfolio of Anish, an AI Engineer & Full Stack Developer from New Delhi, India.",
@@ -39,6 +40,11 @@ const Terminal = () => {
   const handleCommand = () => {
     const command = input.trim().toLowerCase();
     let output: React.ReactNode;
+
+    if (command === 'exit') {
+        onClose(); 
+        return;
+    }
 
     if (command === 'clear') {
       setHistory([]);
