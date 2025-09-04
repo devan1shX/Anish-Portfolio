@@ -557,219 +557,753 @@ export default function Portfolio() {
         </div>
       </section>
 
-      <section
-        id="projects"
-        className="border-b-4 border-green-400 p-4 md:p-6 "
-      >
+      <section id="projects" className="border-b-4 border-green-400 p-4 md:p-6">
         <div className="max-w-6xl mx-auto">
-          <h2 className="text-2xl md:text-3xl font-bold mb-6 border-b-2 border-white pb-2 flex items-center gap-3">
+          <h2 className="text-2xl md:text-3xl font-bold mb-8 border-b-2 border-green-400 pb-2 flex items-center gap-3 animate-pulse-light">
             <Briefcase className="text-green-400" size={28} />
             PROJECTS.DIR
           </h2>
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-            <div className="border-2 border-white">
-              <div className="border-b-2 border-white p-3 md:p-4 bg-green-400 text-black">
-                <h3 className="text-lg md:text-xl font-bold">
-                  DOCUMENT_SCANNER_APP
+          <div className="space-y-12">
+            <div className="relative border-2 border-green-500/50 bg-gray-950 shadow-neon-green transition-all duration-300 hover:border-green-400 hover:shadow-neon-green-strong">
+              <div className="p-3 bg-gradient-to-r from-gray-800 to-black border-b-2 border-green-600 flex justify-between items-center animate-bg-pulse">
+                <h3 className="font-bold text-lg md:text-xl text-green-300 tracking-wide">
+                  [PROJECT PROFILE: Document Scanner App]
                 </h3>
+                <span className="text-gray-500 text-sm italic hidden sm:block">
+                  Log_ID: <span className="text-white">DS_24_001</span>
+                </span>
               </div>
-              <div className="p-4 md:p-6 ">
-                <img
-                  src="/docuScan.png"
-                  alt="Document Scanner App Interface"
-                  className="w-full h-32 md:h-48 object-cover border-2 border-white mb-4 cursor-pointer hover:opacity-80 transition-opacity"
-                  draggable="false"
-                  onClick={() => {
-                    setShowScannerModal(true);
-                    setCurrentScannerImage("/1.jpg");
-                  }}
-                />
-                <p className="mb-4 text-sm md:text-base">
-                  Native Android document scanning app achieving 98% OCR
-                  accuracy and 90% text-to-speech clarity using Google ML Kit.
-                  Automated edge detection and enhancement, reducing manual crop
-                  time by 75%.
+              <div className="p-2 bg-black/50 flex flex-wrap gap-x-6 gap-y-2 text-xs border-b-2 border-green-700">
+                <p>
+                  <span className="text-gray-400">STATUS:</span>
+                  <span className="relative inline-flex h-3 w-3 ml-2 mr-1">
+                    <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
+                    <span className="relative inline-flex rounded-full h-3 w-3 bg-green-500"></span>
+                  </span>
+                  <span className="text-green-300 font-bold">
+                    DEPLOYED & ACTIVE
+                  </span>
                 </p>
-                <div className="mb-4 text-sm md:text-base">
-                  <span className="text-green-400 font-bold">STACK:</span>
-                  <code className="ml-2">
-                    Kotlin, Jetpack Compose, C++, Google ML Kit
-                  </code>
-                </div>
-                <div className="flex flex-col sm:flex-row gap-2 sm:gap-4">
-                  <a
-                    href="https://github.com/devan1shX/DocuScan"
-                    className="border-2 border-white px-3 py-1 hover:bg-white hover:text-black flex items-center gap-2 justify-center text-sm md:text-base"
-                  >
-                    <Github size={16} />
-                    CODE
-                  </a>
-                  <a
-                    href="/base.apk"
-                    download="base.apk"
-                    className="border-2 border-white px-3 py-1 hover:bg-white hover:text-black flex items-center gap-2 justify-center text-sm md:text-base"
-                  >
-                    <ExternalLink size={16} />
-                    INSTALL
-                  </a>
-                </div>
+                <p>
+                  <span className="text-gray-400">INITIATED:</span>{" "}
+                  <span className="text-white">Mar 2024</span>
+                </p>
               </div>
-            </div>
 
-            <div className="border-2 border-white">
-              <div className="border-b-2 border-white p-3 md:p-4 bg-green-400 text-black">
-                <h3 className="text-lg md:text-xl font-bold">
-                  DECEPTION_DETECTION_AI
-                </h3>
-              </div>
-              <div className="p-4 md:p-6">
-                <div
-                  onClick={() => setShowGraphModal(true)}
-                  className="w-full h-32 md:h-48 border-2 border-white mb-4 bg-gray-800 flex items-center justify-center cursor-pointer hover:bg-gray-700 transition-colors"
-                >
-                  <div className="text-center p-4">
-                    <div className="text-green-400 text-base md:text-lg font-bold mb-2">
-                      NEURAL ARCHITECTURE
-                    </div>
-                    <div className="text-xs md:text-sm">
-                      Click to view interactive model diagram
+              <div className="p-4 md:p-6 grid grid-cols-1 lg:grid-cols-3 gap-6">
+                <div className="lg:col-span-1">
+                  <div
+                    className="bg-black p-3 border-2 border-green-700 h-full cursor-pointer group relative overflow-hidden"
+                    onClick={() => {
+                      setShowScannerModal(true);
+                      setCurrentScannerImage("/1.jpg");
+                    }}
+                  >
+                    <img
+                      src="/docuScan.png"
+                      alt="Scanner App Preview"
+                      className="w-full h-full object-cover opacity-90 group-hover:opacity-100 transition-opacity duration-300 transform group-hover:scale-105"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent flex items-end justify-center pb-3 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                      <p className="text-center text-xs text-green-300 font-bold animate-pulse">
+                        [VIEW DETAILED ANALYSIS]
+                      </p>
                     </div>
                   </div>
                 </div>
-                <p className="mb-4 text-sm md:text-base">
-                  Hybrid deep learning model combining Transformer encoders with
-                  Graph Convolutional Networks for deception detection in
-                  diplomacy dialogues. Preprocessed 17,000+ messages, achieving
-                  85.8% accuracy and 0.60 Macro F1-score.
-                </p>
-                <div className="mb-4 text-sm md:text-base">
-                  <span className="text-green-400 font-bold">STACK:</span>
-                  <code className="ml-2">
-                    Python, TensorFlow, GCNs, NLP, Transformers
-                  </code>
+                <div className="lg:col-span-2 space-y-5">
+                  <div>
+                    <p className="font-bold text-green-400 text-lg">
+                      [MISSION_OBJECTIVE]
+                    </p>
+                    <p className="mt-2 text-sm text-gray-200 leading-relaxed">
+                      To create a smart Android document scanner that makes
+                      digitizing papers fast and effortless, with built-in tools
+                      to extract text and read it aloud for enhanced
+                      accessibility.
+                    </p>
+                  </div>
+                  <div>
+                    <p className="font-bold text-green-400 text-lg">
+                      [PERFORMANCE_REPORT]
+                    </p>
+                    <ul className="mt-2 space-y-2 text-sm text-gray-300">
+                      <li className="flex items-start">
+                        <Check
+                          size={18}
+                          className="inline mr-2 mt-0.5 text-green-500 flex-shrink-0"
+                        />
+                        <span>
+                          <strong className="text-white">
+                            High-Accuracy Text Recognition (98%):
+                          </strong>{" "}
+                          Reliably converts scanned documents into editable text
+                          for seamless digital integration.
+                        </span>
+                      </li>
+                      <li className="flex items-start">
+                        <Check
+                          size={18}
+                          className="inline mr-2 mt-0.5 text-green-500 flex-shrink-0"
+                        />
+                        <span>
+                          <strong className="text-white">
+                            Automated Edge Detection:
+                          </strong>{" "}
+                          Dramatically reduces user effort by intelligently
+                          framing documents, cutting manual cropping time by{" "}
+                          <span className="text-green-300">75%</span>.
+                        </span>
+                      </li>
+                      <li className="flex items-start">
+                        <Check
+                          size={18}
+                          className="inline mr-2 mt-0.5 text-green-500 flex-shrink-0"
+                        />
+                        <span>
+                          <strong className="text-white">
+                            Auditory Accessibility:
+                          </strong>{" "}
+                          Converts scanned text to speech with{" "}
+                          <span className="text-green-300">90% clarity</span>,
+                          opening access for visually impaired users.
+                        </span>
+                      </li>
+                    </ul>
+                  </div>
+                  <div>
+                    <p className="font-bold text-green-400 text-lg">
+                      [TECHNOLOGY_STACK]
+                    </p>
+                    <div className="flex flex-wrap gap-2 mt-2">
+                      <span className="text-xs bg-gray-700 text-green-200 px-3 py-1 border border-green-800 rounded-sm hover:bg-green-800 transition-colors">
+                        Kotlin
+                      </span>
+                      <span className="text-xs bg-gray-700 text-green-200 px-3 py-1 border border-green-800 rounded-sm hover:bg-green-800 transition-colors">
+                        Jetpack Compose
+                      </span>
+                      <span className="text-xs bg-gray-700 text-green-200 px-3 py-1 border border-green-800 rounded-sm hover:bg-green-800 transition-colors">
+                        C++
+                      </span>
+                      <span className="text-xs bg-gray-700 text-green-200 px-3 py-1 border border-green-800 rounded-sm hover:bg-green-800 transition-colors">
+                        Google ML Kit
+                      </span>
+                    </div>
+                  </div>
                 </div>
-                <div className="flex gap-4">
-                  <a
-                    href="https://github.com/Beingstupid4me/Deception-detection"
-                    className="border-2 border-white px-3 py-1 hover:bg-white hover:text-black flex items-center gap-2 text-sm md:text-base"
-                  >
-                    <Github size={16} /> CODE
-                  </a>
-                </div>
+              </div>
+              <div className="p-3 bg-gray-800/50 border-t-2 border-green-600 flex justify-end gap-4">
+                <a
+                  href="https://github.com/devan1shX/DocuScan"
+                  className="text-green-300 hover:text-white transition-colors flex items-center gap-2 text-sm border-b border-transparent hover:border-green-300 pb-0.5"
+                >
+                  <Github size={18} />
+                  <span>SOURCE_CODE</span>
+                </a>
+                <a
+                  href="/base.apk"
+                  download="base.apk"
+                  className="text-green-300 hover:text-white transition-colors flex items-center gap-2 text-sm border-b border-transparent hover:border-green-300 pb-0.5"
+                >
+                  <Download size={18} />
+                  <span>INSTALL_BINARY</span>
+                </a>
               </div>
             </div>
 
-            <div className="border-2 border-white">
-              <div className="border-b-2 border-white p-3 md:p-4 bg-green-400 text-black">
-                <h3 className="text-lg md:text-xl font-bold">
-                  STICK_HERO_GAME
+            <div className="relative border-2 border-blue-500/50 bg-gray-950 shadow-neon-blue transition-all duration-300 hover:border-blue-400 hover:shadow-neon-blue-strong">
+              <div className="p-3 bg-gradient-to-r from-gray-800 to-black border-b-2 border-blue-600 flex justify-between items-center animate-bg-pulse">
+                <h3 className="font-bold text-lg md:text-xl text-blue-300 tracking-wide">
+                  [PROJECT PROFILE: Deception Detection AI]
                 </h3>
+                <span className="text-gray-500 text-sm italic hidden sm:block">
+                  Log_ID: <span className="text-white">DD_25_001</span>
+                </span>
               </div>
-              <div className="p-4 md:p-6">
-                <img
-                  src="/stick_hero.png"
-                  alt="Stick Hero Game Screenshot"
-                  className="w-full h-32 md:h-48 object-contain border-2 border-white mb-4 bg-gray-800"
-                  draggable="false"
-                />
-                <p className="mb-4 text-sm md:text-base">
-                  JavaFX stick-man arcade game with cherry collection mechanics
-                  running at 60 FPS with less than 5ms input latency. Features
-                  multithreading for 100 concurrent animations and 90% JUnit
-                  test coverage.
+              <div className="p-2 bg-black/50 flex flex-wrap gap-x-6 gap-y-2 text-xs border-b-2 border-blue-700">
+                <p>
+                  <span className="text-gray-400">STATUS:</span>{" "}
+                  <span className="text-yellow-300 font-bold">
+                    UNDER RESEARCH
+                  </span>
                 </p>
-                <div className="mb-4 text-sm md:text-base">
-                  <span className="text-green-400 font-bold">STACK:</span>
-                  <code className="ml-2">
-                    Java, JavaFX, FXML, Multithreading, JUnit
-                  </code>
-                </div>
-                <div className="flex gap-4">
-                  <a
-                    href="https://github.com/devan1shX/Stick-Hero-Game"
-                    className="border-2 border-white px-3 py-1 hover:bg-white hover:text-black flex items-center gap-2 text-sm md:text-base"
+                <p>
+                  <span className="text-gray-400">INITIATED:</span>{" "}
+                  <span className="text-white">Aug 2024</span>
+                </p>
+              </div>
+              <div className="p-4 md:p-6 grid grid-cols-1 lg:grid-cols-3 gap-6">
+                <div className="lg:col-span-1">
+                  <div
+                    onClick={() => setShowGraphModal(true)}
+                    className="bg-black p-3 border-2 border-blue-700 h-full flex items-center justify-center cursor-pointer group relative overflow-hidden"
                   >
-                    <Github size={16} />
-                    CODE
-                  </a>
+                    <div className="text-center p-4">
+                      <div className="text-blue-400 text-xl font-bold font-mono">
+                        $ view_architecture
+                        <span className="inline-block w-3 h-6 bg-blue-400 ml-1 animate-pulse"></span>
+                      </div>
+                      <div className="text-xs text-gray-400 mt-2 group-hover:text-white animate-pulse-light">
+                        [Click for Model Overview]
+                      </div>
+                    </div>
+                  </div>
                 </div>
+                <div className="lg:col-span-2 space-y-5">
+                  <div>
+                    <p className="font-bold text-blue-400 text-lg">
+                      [MISSION_OBJECTIVE]
+                    </p>
+                    <p className="mt-2 text-sm text-gray-200 leading-relaxed">
+                      To build an advanced AI model capable of identifying
+                      deceptive patterns in complex text-based communications,
+                      specifically for high-stakes diplomatic dialogues.
+                    </p>
+                  </div>
+                  <div>
+                    <p className="font-bold text-blue-400 text-lg">
+                      [PERFORMANCE_REPORT]
+                    </p>
+                    <ul className="mt-2 space-y-2 text-sm text-gray-300">
+                      <li className="flex items-start">
+                        <Check
+                          size={18}
+                          className="inline mr-2 mt-0.5 text-blue-500 flex-shrink-0"
+                        />
+                        <span>
+                          <strong className="text-white">
+                            Innovative Hybrid Architecture:
+                          </strong>{" "}
+                          Combines Transformer encoders with Graph Convolutional
+                          Networks (GCNs) for deep contextual understanding.
+                        </span>
+                      </li>
+                      <li className="flex items-start">
+                        <Check
+                          size={18}
+                          className="inline mr-2 mt-0.5 text-blue-500 flex-shrink-0"
+                        />
+                        <span>
+                          <strong className="text-white">
+                            High Predictive Accuracy:
+                          </strong>{" "}
+                          Achieved an impressive{" "}
+                          <span className="text-blue-300">85.8% accuracy</span>{" "}
+                          in identifying deception across a vast dataset.
+                        </span>
+                      </li>
+                      <li className="flex items-start">
+                        <Check
+                          size={18}
+                          className="inline mr-2 mt-0.5 text-blue-500 flex-shrink-0"
+                        />
+                        <span>
+                          <strong className="text-white">
+                            Large-Scale Data Processing:
+                          </strong>{" "}
+                          Trained and validated on over{" "}
+                          <span className="text-blue-300">
+                            17,000 preprocessed messages
+                          </span>{" "}
+                          for robust performance.
+                        </span>
+                      </li>
+                    </ul>
+                  </div>
+                  <div>
+                    <p className="font-bold text-blue-400 text-lg">
+                      [TECHNOLOGY_STACK]
+                    </p>
+                    <div className="flex flex-wrap gap-2 mt-2">
+                      <span className="text-xs bg-gray-700 text-blue-200 px-3 py-1 border border-blue-800 rounded-sm hover:bg-blue-800 transition-colors">
+                        Python
+                      </span>
+                      <span className="text-xs bg-gray-700 text-blue-200 px-3 py-1 border border-blue-800 rounded-sm hover:bg-blue-800 transition-colors">
+                        TensorFlow
+                      </span>
+                      <span className="text-xs bg-gray-700 text-blue-200 px-3 py-1 border border-blue-800 rounded-sm hover:bg-blue-800 transition-colors">
+                        GCNs
+                      </span>
+                      <span className="text-xs bg-gray-700 text-blue-200 px-3 py-1 border border-blue-800 rounded-sm hover:bg-blue-800 transition-colors">
+                        NLP
+                      </span>
+                      <span className="text-xs bg-gray-700 text-blue-200 px-3 py-1 border border-blue-800 rounded-sm hover:bg-blue-800 transition-colors">
+                        Transformers
+                      </span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div className="p-3 bg-gray-800/50 border-t-2 border-blue-600 flex justify-end gap-4">
+                <a
+                  href="https://github.com/Beingstupid4me/Deception-detection"
+                  className="text-blue-300 hover:text-white transition-colors flex items-center gap-2 text-sm border-b border-transparent hover:border-blue-300 pb-0.5"
+                >
+                  <Github size={18} />
+                  <span>SOURCE_CODE</span>
+                </a>
               </div>
             </div>
 
-            <div className="border-2 border-white">
-              <div className="border-b-2 border-white p-3 md:p-4 bg-green-400 text-black">
-                <h3 className="text-lg md:text-xl font-bold">
-                  MINI_OPERATING_SYSTEM
+            <div className="relative border-2 border-red-500/50 bg-gray-950 shadow-neon-red transition-all duration-300 hover:border-red-400 hover:shadow-neon-red-strong">
+              <div className="p-3 bg-gradient-to-r from-gray-800 to-black border-b-2 border-red-600 flex justify-between items-center animate-bg-pulse">
+                <h3 className="font-bold text-lg md:text-xl text-red-300 tracking-wide">
+                  [PROJECT PROFILE: Stick Hero Game]
                 </h3>
+                <span className="text-gray-500 text-sm italic hidden sm:block">
+                  Log_ID: <span className="text-white">SH_23_001</span>
+                </span>
               </div>
-              <div className="p-4 md:p-6">
-                <img
-                  src="/operating_system.png"
-                  alt="Operating System Interface"
-                  className="w-full h-32 md:h-48 object-contain border-2 border-white mb-4 bg-gray-800"
-                  draggable="false"
-                />
-                <p className="mb-4 text-sm md:text-base">
-                  Custom operating system with priority-based CPU scheduler in
-                  C, decreasing average process turnaround time by 15% under
-                  heavy workloads. Streamlined shell and ELF loader with 100%
-                  lazy-loading success, reducing memory footprint by 30%.
+              <div className="p-2 bg-black/50 flex flex-wrap gap-x-6 gap-y-2 text-xs border-b-2 border-red-700">
+                <p>
+                  <span className="text-gray-400">STATUS:</span>{" "}
+                  <span className="text-cyan-300 font-bold">
+                    ACADEMIC ARCHIVE
+                  </span>
                 </p>
-                <div className="mb-4 text-sm md:text-base">
-                  <span className="text-green-400 font-bold">STACK:</span>
-                  <code className="ml-2">C, Linux, Git, Java, WSL</code>
+                <p>
+                  <span className="text-gray-400">INITIATED:</span>{" "}
+                  <span className="text-white">Oct 2023</span>
+                </p>
+              </div>
+              <div className="p-4 md:p-6 grid grid-cols-1 lg:grid-cols-3 gap-6">
+                <div className="lg:col-span-1">
+                  <div className="bg-black p-3 border-2 border-red-700 h-full group relative overflow-hidden">
+                    <img
+                      src="/stick_hero.png"
+                      alt="Stick Hero Game Preview"
+                      className="w-full h-full object-contain opacity-90 group-hover:opacity-100 transition-opacity duration-300 transform group-hover:scale-105"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent flex items-end justify-center pb-3 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                      <p className="text-center text-xs text-red-300 font-bold animate-pulse">
+                        [GAMEPLAY SCREENSHOT]
+                      </p>
+                    </div>
+                  </div>
                 </div>
-                <div className="flex gap-4">
-                  <a
-                    href="https://github.com/devan1shX/OS-Assignment"
-                    className="border-2 border-white px-3 py-1 hover:bg-white hover:text-black flex items-center gap-2 text-sm md:text-base"
-                  >
-                    <Github size={16} />
-                    CODE
-                  </a>
+                <div className="lg:col-span-2 space-y-5">
+                  <div>
+                    <p className="font-bold text-red-400 text-lg">
+                      [MISSION_OBJECTIVE]
+                    </p>
+                    <p className="mt-2 text-sm text-gray-200 leading-relaxed">
+                      To engineer a fun and responsive 2D arcade game from the
+                      ground up using JavaFX, focusing on smooth performance,
+                      complex animations, and high-quality, bug-free code.
+                    </p>
+                  </div>
+                  <div>
+                    <p className="font-bold text-red-400 text-lg">
+                      [PERFORMANCE_REPORT]
+                    </p>
+                    <ul className="mt-2 space-y-2 text-sm text-gray-300">
+                      <li className="flex items-start">
+                        <Check
+                          size={18}
+                          className="inline mr-2 mt-0.5 text-red-500 flex-shrink-0"
+                        />
+                        <span>
+                          <strong className="text-white">
+                            Ultra-Smooth Gameplay:
+                          </strong>{" "}
+                          Achieves a stable{" "}
+                          <span className="text-red-300">
+                            60 Frames Per Second (FPS)
+                          </span>{" "}
+                          with immediate player input response.
+                        </span>
+                      </li>
+                      <li className="flex items-start">
+                        <Check
+                          size={18}
+                          className="inline mr-2 mt-0.5 text-red-500 flex-shrink-0"
+                        />
+                        <span>
+                          <strong className="text-white">
+                            Multithreaded Animation Engine:
+                          </strong>{" "}
+                          Handles numerous concurrent on-screen actions and
+                          physics simulations without performance degradation.
+                        </span>
+                      </li>
+                      <li className="flex items-start">
+                        <Check
+                          size={18}
+                          className="inline mr-2 mt-0.5 text-red-500 flex-shrink-0"
+                        />
+                        <span>
+                          <strong className="text-white">
+                            Robust Code Quality:
+                          </strong>{" "}
+                          Ensures high reliability and expected behavior with{" "}
+                          <span className="text-red-300">
+                            90% JUnit test coverage
+                          </span>
+                          .
+                        </span>
+                      </li>
+                    </ul>
+                  </div>
+                  <div>
+                    <p className="font-bold text-red-400 text-lg">
+                      [TECHNOLOGY_STACK]
+                    </p>
+                    <div className="flex flex-wrap gap-2 mt-2">
+                      <span className="text-xs bg-gray-700 text-red-200 px-3 py-1 border border-red-800 rounded-sm hover:bg-red-800 transition-colors">
+                        Java
+                      </span>
+                      <span className="text-xs bg-gray-700 text-red-200 px-3 py-1 border border-red-800 rounded-sm hover:bg-red-800 transition-colors">
+                        JavaFX
+                      </span>
+                      <span className="text-xs bg-gray-700 text-red-200 px-3 py-1 border border-red-800 rounded-sm hover:bg-red-800 transition-colors">
+                        Multithreading
+                      </span>
+                      <span className="text-xs bg-gray-700 text-red-200 px-3 py-1 border border-red-800 rounded-sm hover:bg-red-800 transition-colors">
+                        JUnit
+                      </span>
+                    </div>
+                  </div>
                 </div>
+              </div>
+              <div className="p-3 bg-gray-800/50 border-t-2 border-red-600 flex justify-end gap-4">
+                <a
+                  href="https://github.com/devan1shX/Stick-Hero-Game"
+                  className="text-red-300 hover:text-white transition-colors flex items-center gap-2 text-sm border-b border-transparent hover:border-red-300 pb-0.5"
+                >
+                  <Github size={18} />
+                  <span>SOURCE_CODE</span>
+                </a>
               </div>
             </div>
 
-            <div className="border-2 border-white">
-              <div className="border-b-2 border-white p-3 md:p-4 bg-green-400 text-black">
-                <h3 className="text-lg md:text-xl font-bold">
-                  ADVANCED_NOC_DESIGN
+            <div className="relative border-2 border-purple-500/50 bg-gray-950 shadow-neon-purple transition-all duration-300 hover:border-purple-400 hover:shadow-neon-purple-strong">
+              <div className="p-3 bg-gradient-to-r from-gray-800 to-black border-b-2 border-purple-600 flex justify-between items-center animate-bg-pulse">
+                <h3 className="font-bold text-lg md:text-xl text-purple-300 tracking-wide">
+                  [PROJECT PROFILE: Mini Operating System]
                 </h3>
+                <span className="text-gray-500 text-sm italic hidden sm:block">
+                  Log_ID: <span className="text-white">OS_24_001</span>
+                </span>
               </div>
-              <div className="p-4 md:p-6">
-                <img
-                  src="/noc.png"
-                  alt="Network on Chip Design"
-                  className="w-full h-32 md:h-48 object-contain border-2 border-white mb-4 bg-gray-800"
-                  draggable="false"
-                />
-                <p className="mb-4 text-sm md:text-base">
-                  Designed and implemented novel Network-on-Chip configurations
-                  from scratch using HeteroGarnet. Benchmarked system
-                  performance in Gem5 under diverse traffic patterns, informing
-                  scalable architecture decisions.
+              <div className="p-2 bg-black/50 flex flex-wrap gap-x-6 gap-y-2 text-xs border-b-2 border-purple-700">
+                <p>
+                  <span className="text-gray-400">STATUS:</span>{" "}
+                  <span className="text-cyan-300 font-bold">
+                    ACADEMIC ARCHIVE
+                  </span>
                 </p>
-                <div className="mb-4 text-sm md:text-base">
-                  <span className="text-green-400 font-bold">STACK:</span>
-                  <code className="ml-2">
-                    Gem5, HeteroGarnet, Python, SystemC
-                  </code>
+                <p>
+                  <span className="text-gray-400">INITIATED:</span>{" "}
+                  <span className="text-white">Nov 2023</span>
+                </p>
+              </div>
+              <div className="p-4 md:p-6 grid grid-cols-1 lg:grid-cols-3 gap-6">
+                <div className="lg:col-span-1">
+                  <div className="bg-black p-3 border-2 border-purple-700 h-full group relative overflow-hidden">
+                    <img
+                      src="/operating_system.png"
+                      alt="Mini OS Preview"
+                      className="w-full h-full object-contain opacity-90 group-hover:opacity-100 transition-opacity duration-300 transform group-hover:scale-105"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent flex items-end justify-center pb-3 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                      <p className="text-center text-xs text-purple-300 font-bold animate-pulse">
+                        [SYSTEM DIAGRAM]
+                      </p>
+                    </div>
+                  </div>
                 </div>
-                <div className="flex gap-4">
-                  <a
-                    href="https://github.com/Beingstupid4me/NOC_Config"
-                    className="border-2 border-white px-3 py-1 hover:bg-white hover:text-black flex items-center gap-2 text-sm md:text-base"
-                  >
-                    <Github size={16} />
-                    CODE
-                  </a>
+                <div className="lg:col-span-2 space-y-5">
+                  <div>
+                    <p className="font-bold text-purple-400 text-lg">
+                      [MISSION_OBJECTIVE]
+                    </p>
+                    <p className="mt-2 text-sm text-gray-200 leading-relaxed">
+                      To build a foundational operating system kernel from
+                      scratch in C, focusing on efficient process scheduling and
+                      memory management to dramatically improve overall system
+                      performance.
+                    </p>
+                  </div>
+                  <div>
+                    <p className="font-bold text-purple-400 text-lg">
+                      [PERFORMANCE_REPORT]
+                    </p>
+                    <ul className="mt-2 space-y-2 text-sm text-gray-300">
+                      <li className="flex items-start">
+                        <Check
+                          size={18}
+                          className="inline mr-2 mt-0.5 text-purple-500 flex-shrink-0"
+                        />
+                        <span>
+                          <strong className="text-white">
+                            Optimized Process Handling:
+                          </strong>{" "}
+                          The custom priority-based CPU scheduler decreased
+                          average task completion time by{" "}
+                          <span className="text-purple-300">15%</span> under
+                          heavy system workloads.
+                        </span>
+                      </li>
+                      <li className="flex items-start">
+                        <Check
+                          size={18}
+                          className="inline mr-2 mt-0.5 text-purple-500 flex-shrink-0"
+                        />
+                        <span>
+                          <strong className="text-white">
+                            Highly Efficient Memory Use:
+                          </strong>{" "}
+                          Achieved a significant{" "}
+                          <span className="text-purple-300">
+                            30% reduction in memory footprint
+                          </span>{" "}
+                          through an innovative "lazy-loading" technique.
+                        </span>
+                      </li>
+                      <li className="flex items-start">
+                        <Check
+                          size={18}
+                          className="inline mr-2 mt-0.5 text-purple-500 flex-shrink-0"
+                        />
+                        <span>
+                          <strong className="text-white">
+                            Robust System Core:
+                          </strong>{" "}
+                          Developed a custom shell and ELF loader for a fully
+                          functional, bare-metal operating environment.
+                        </span>
+                      </li>
+                    </ul>
+                  </div>
+                  <div>
+                    <p className="font-bold text-purple-400 text-lg">
+                      [TECHNOLOGY_STACK]
+                    </p>
+                    <div className="flex flex-wrap gap-2 mt-2">
+                      <span className="text-xs bg-gray-700 text-purple-200 px-3 py-1 border border-purple-800 rounded-sm hover:bg-purple-800 transition-colors">
+                        C Language
+                      </span>
+                      <span className="text-xs bg-gray-700 text-purple-200 px-3 py-1 border border-purple-800 rounded-sm hover:bg-purple-800 transition-colors">
+                        Linux Kernel
+                      </span>
+                      <span className="text-xs bg-gray-700 text-purple-200 px-3 py-1 border border-purple-800 rounded-sm hover:bg-purple-800 transition-colors">
+                        System Architecture
+                      </span>
+                    </div>
+                  </div>
                 </div>
+              </div>
+              <div className="p-3 bg-gray-800/50 border-t-2 border-purple-600 flex justify-end gap-4">
+                <a
+                  href="https://github.com/devan1shX/OS-Assignment"
+                  className="text-purple-300 hover:text-white transition-colors flex items-center gap-2 text-sm border-b border-transparent hover:border-purple-300 pb-0.5"
+                >
+                  <Github size={18} />
+                  <span>SOURCE_CODE</span>
+                </a>
+              </div>
+            </div>
+
+            <div className="relative border-2 border-yellow-500/50 bg-gray-950 shadow-neon-yellow transition-all duration-300 hover:border-yellow-400 hover:shadow-neon-yellow-strong">
+              <div className="p-3 bg-gradient-to-r from-gray-800 to-black border-b-2 border-yellow-600 flex justify-between items-center animate-bg-pulse">
+                <h3 className="font-bold text-lg md:text-xl text-yellow-300 tracking-wide">
+                  [PROJECT PROFILE: Advanced Chip Design]
+                </h3>
+                <span className="text-gray-500 text-sm italic hidden sm:block">
+                  Log_ID: <span className="text-white">NOC_24_001</span>
+                </span>
+              </div>
+              <div className="p-2 bg-black/50 flex flex-wrap gap-x-6 gap-y-2 text-xs border-b-2 border-yellow-700">
+                <p>
+                  <span className="text-gray-400">STATUS:</span>{" "}
+                  <span className="text-orange-300 font-bold">
+                    RESEARCH COMPLETE
+                  </span>
+                </p>
+                <p>
+                  <span className="text-gray-400">INITIATED:</span>{" "}
+                  <span className="text-white">Feb 2024</span>
+                </p>
+              </div>
+              <div className="p-4 md:p-6 grid grid-cols-1 lg:grid-cols-3 gap-6">
+                <div className="lg:col-span-1">
+                  <div className="bg-black p-3 border-2 border-yellow-700 h-full group relative overflow-hidden">
+                    <img
+                      src="/noc.png"
+                      alt="Network on Chip Preview"
+                      className="w-full h-full object-contain opacity-90 group-hover:opacity-100 transition-opacity duration-300 transform group-hover:scale-105"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent flex items-end justify-center pb-3 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                      <p className="text-center text-xs text-yellow-300 font-bold animate-pulse">
+                        [ARCHITECTURAL OVERVIEW]
+                      </p>
+                    </div>
+                  </div>
+                </div>
+                <div className="lg:col-span-2 space-y-5">
+                  <div>
+                    <p className="font-bold text-yellow-400 text-lg">
+                      [MISSION_OBJECTIVE]
+                    </p>
+                    <p className="mt-2 text-sm text-gray-200 leading-relaxed">
+                      To research and design highly efficient internal data
+                      pathways for modern computer chips (a "Network-on-Chip"),
+                      aiming to significantly boost future processor performance
+                      and data handling capabilities.
+                    </p>
+                  </div>
+                  <div>
+                    <p className="font-bold text-yellow-400 text-lg">
+                      [PERFORMANCE_REPORT]
+                    </p>
+                    <ul className="mt-2 space-y-2 text-sm text-gray-300">
+                      <li className="flex items-start">
+                        <Check
+                          size={18}
+                          className="inline mr-2 mt-0.5 text-yellow-500 flex-shrink-0"
+                        />
+                        <span>
+                          <strong className="text-white">
+                            Innovative Chip Architecture:
+                          </strong>{" "}
+                          Developed novel layouts for optimized data flow within
+                          multi-core processors, effectively preventing data
+                          bottlenecks.
+                        </span>
+                      </li>
+                      <li className="flex items-start">
+                        <Check
+                          size={18}
+                          className="inline mr-2 mt-0.5 text-yellow-500 flex-shrink-0"
+                        />
+                        <span>
+                          <strong className="text-white">
+                            Advanced Performance Simulation:
+                          </strong>{" "}
+                          Utilized the industry-standard Gem5 simulator to
+                          rigorously test designs under diverse data traffic
+                          patterns.
+                        </span>
+                      </li>
+                      <li className="flex items-start">
+                        <Check
+                          size={18}
+                          className="inline mr-2 mt-0.5 text-yellow-500 flex-shrink-0"
+                        />
+                        <span>
+                          <strong className="text-white">
+                            Blueprint for Future Chips:
+                          </strong>{" "}
+                          Provided critical insights for developing more
+                          powerful, scalable, and energy-efficient processing
+                          units.
+                        </span>
+                      </li>
+                    </ul>
+                  </div>
+                  <div>
+                    <p className="font-bold text-yellow-400 text-lg">
+                      [TECHNOLOGY_STACK]
+                    </p>
+                    <div className="flex flex-wrap gap-2 mt-2">
+                      <span className="text-xs bg-gray-700 text-yellow-200 px-3 py-1 border border-yellow-800 rounded-sm hover:bg-yellow-800 transition-colors">
+                        Gem5 Simulator
+                      </span>
+                      <span className="text-xs bg-gray-700 text-yellow-200 px-3 py-1 border border-yellow-800 rounded-sm hover:bg-yellow-800 transition-colors">
+                        Python
+                      </span>
+                      <span className="text-xs bg-gray-700 text-yellow-200 px-3 py-1 border border-yellow-800 rounded-sm hover:bg-yellow-800 transition-colors">
+                        SystemC
+                      </span>
+                      <span className="text-xs bg-gray-700 text-yellow-200 px-3 py-1 border border-yellow-800 rounded-sm hover:bg-yellow-800 transition-colors">
+                        Digital Design
+                      </span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div className="p-3 bg-gray-800/50 border-t-2 border-yellow-600 flex justify-end gap-4">
+                <a
+                  href="https://github.com/Beingstupid4me/NOC_Config"
+                  className="text-yellow-300 hover:text-white transition-colors flex items-center gap-2 text-sm border-b border-transparent hover:border-yellow-300 pb-0.5"
+                >
+                  <Github size={18} />
+                  <span>SOURCE_CODE</span>
+                </a>
               </div>
             </div>
           </div>
         </div>
       </section>
+      <style jsx>{`
+        @keyframes pulse-light {
+          0%,
+          100% {
+            opacity: 1;
+          }
+          50% {
+            opacity: 0.8;
+          }
+        }
+        @keyframes bg-pulse {
+          0% {
+            background-position: 0% 50%;
+          }
+          50% {
+            background-position: 100% 50%;
+          }
+          100% {
+            background-position: 0% 50%;
+          }
+        }
+        .animate-pulse-light {
+          animation: pulse-light 2s infinite ease-in-out;
+        }
+        .animate-bg-pulse {
+          background-size: 200% 200%;
+          animation: bg-pulse 10s infinite alternate linear;
+        }
+        .shadow-neon-green {
+          box-shadow: 0 0 8px rgba(0, 255, 0, 0.4),
+            0 0 15px rgba(0, 255, 0, 0.2);
+        }
+        .hover\\:shadow-neon-green-strong:hover {
+          box-shadow: 0 0 15px rgba(0, 255, 0, 0.6),
+            0 0 25px rgba(0, 255, 0, 0.4);
+        }
+        .shadow-neon-blue {
+          box-shadow: 0 0 8px rgba(0, 191, 255, 0.4),
+            0 0 15px rgba(0, 191, 255, 0.2);
+        }
+        .hover\\:shadow-neon-blue-strong:hover {
+          box-shadow: 0 0 15px rgba(0, 191, 255, 0.6),
+            0 0 25px rgba(0, 191, 255, 0.4);
+        }
+        .shadow-neon-red {
+          box-shadow: 0 0 8px rgba(255, 0, 0, 0.4),
+            0 0 15px rgba(255, 0, 0, 0.2);
+        }
+        .hover\\:shadow-neon-red-strong:hover {
+          box-shadow: 0 0 15px rgba(255, 0, 0, 0.6),
+            0 0 25px rgba(255, 0, 0, 0.4);
+        }
+        .shadow-neon-purple {
+          box-shadow: 0 0 8px rgba(128, 0, 128, 0.4),
+            0 0 15px rgba(128, 0, 128, 0.2);
+        }
+        .hover\\:shadow-neon-purple-strong:hover {
+          box-shadow: 0 0 15px rgba(128, 0, 128, 0.6),
+            0 0 25px rgba(128, 0, 128, 0.4);
+        }
+        .shadow-neon-yellow {
+          box-shadow: 0 0 8px rgba(255, 255, 0, 0.4),
+            0 0 15px rgba(255, 255, 0, 0.2);
+        }
+        .hover\\:shadow-neon-yellow-strong:hover {
+          box-shadow: 0 0 15px rgba(255, 255, 0, 0.6),
+            0 0 25px rgba(255, 255, 0, 0.4);
+        }
+      `}</style>
 
       <section id="setup" className="border-b-4 border-green-400 p-4 md:p-6 ">
         <div className="max-w-6xl mx-auto">
@@ -1289,5 +1823,3 @@ music = "Spotify (Lo-fi beats for focus)"
     </div>
   );
 }
-
-
