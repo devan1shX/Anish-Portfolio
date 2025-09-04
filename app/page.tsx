@@ -27,6 +27,7 @@ import ReactFlow, {
   Connection,
 } from "reactflow";
 import "reactflow/dist/style.css";
+import SystemFooter from "./components/SystemFooter";
 
 export default function Portfolio() {
   const handleNavClick = (
@@ -1208,11 +1209,7 @@ music = "Spotify (Lo-fi beats for focus)"
         </div>
       </section>
 
-      <footer className="border-t-4 border-green-400 p-4 md:p-6 text-center">
-        <p className="text-green-400 text-xs md:text-sm ">
-          © 2025 Anish | Crafted with Next.js & Tailwind | Deployed on Github
-        </p>
-      </footer>
+      <SystemFooter />
 
       {showGraphModal && (
         <div className="fixed inset-0 bg-black bg-opacity-75 flex items-center justify-center z-50 p-2 md:p-4">
@@ -1296,3 +1293,4 @@ music = "Spotify (Lo-fi beats for focus)"
     </div>
   );
 }
+
